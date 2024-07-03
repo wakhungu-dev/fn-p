@@ -1,17 +1,23 @@
 import axios from "axios";
-import { set } from "mongoose";
+// import { set } from "mongoose";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Spinner from "./spinner";
 import { ReactSortable} from 'react-sortablejs'
 
-export default function Product() {
+export default function Product({
+    _id,
+    title: existingTitle,
+    description: existingDescription,
+    price: existingPrice,
+    images: existingImages
+}) {
     const [redirect, setRedirect] = useState(false);
     const router = useRouter();
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [images, setImages] = useState([]);
+    const [title, setTitle] = useState(existingTitle ||"");
+    const [description, setDescription] = useState(existingDescription ||"");
+    const [price, setPrice] = useState(existingPrice ||"");
+    const [images, setImages] = useState(existingImages || []);
     // const [category, setCategory] = useState("");
     const [isUploading, setIsUploading] = useState(false);
 
@@ -29,7 +35,12 @@ export default function Product() {
         }
 
         const data = {title, description, price, images} 
-        await axios.post('/api/products', data)
+        if (_id) {
+            await axios.put('/api/products', {...data, _id})
+        } else{
+            await axios.post('/api/products', data)
+        }
+        
         setRedirect(true)
 
     };
