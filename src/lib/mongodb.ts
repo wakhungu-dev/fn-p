@@ -6,7 +6,7 @@ console.log('Environment Variables:', {
   GOOGLE_SECRET: process.env.GOOGLE_SECRET,
 });
 
-if (!process.env.MONGODB_URI) {
+if (!process.env.NEXT_MONGODB_URI2) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
 }
 

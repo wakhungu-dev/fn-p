@@ -1,7 +1,9 @@
 import { FadeLoader } from "react-spinners";
 
-export default function Spinner () {
+
+
+export  function Spinner ({className=""}) {
     return <>
-    <FadeLoader color='#36d7b7' size={90} />
+    <FadeLoader className= {`${className}`}color='#36d7b7' size={90} />
     </>
 }
