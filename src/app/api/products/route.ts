@@ -1,32 +1,45 @@
-import { mongooseConnect } from "@/lib/mongoose";
-import { ProductModel } from "@/models/Product";
+import Product from "@/libs/models/product";
+import { mongoDbConnection } from "@/libs/mongoDb";
 import { NextRequest, NextResponse } from "next/server";
-export async function GET(req:NextRequest){
-    try {
-        await mongooseConnect();
-        const products = await ProductModel.find();
-        return NextResponse.json(products);
-     
-        
-    } catch (error:any ) {
-        return NextResponse.json({error: error.message}, {status: 500});
-        
-    }
-   
-}
-export async function POST(req:NextRequest){
 
+export async function GET(){
     try {
-        let body = await req.json();
-        await mongooseConnect();
-        const formatedBody = Array.isArray(body) ? body : [body];
-        const savedProducts = await ProductModel.insertMany(formatedBody);
-        return NextResponse.json(savedProducts );
+        await mongoDbConnection();
+        const data = await  Product.find();
+        return NextResponse.json(data);
+    } catch (error) {
+        return NextResponse.json({
+            error,
+            msg: "Error fetching products",
         
-    } catch (error:any ) {
-        return NextResponse.json({error: error.message}, {status: 500});
-        
-    }
-   
-}
+    },{status: 400});
 
+    }
+}
+export async function POST(request: NextRequest) {
+    try {
+        await mongoDbConnection();
+        
+        const body = await request.json();
+        const { imgSrc, fileKey, name, category, price } = body;
+
+        if (!imgSrc || !fileKey || !name || !category || !price) {
+            return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+        }
+
+        const newProduct = new Product({
+            imgSrc,
+            fileKey,
+            name,
+            category,
+            price,
+        });
+
+        await newProduct.save();
+
+        return NextResponse.json({ message: 'Product added successfully', product: newProduct }, { status: 201 });
+    } catch (error) {
+        console.error('Error adding product:', error);
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    }
+}

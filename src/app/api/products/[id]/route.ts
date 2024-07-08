@@ -1,37 +1,34 @@
-import { mongooseConnect } from "@/lib/mongoose";
-import { ProductModel } from "@/models/Product";
-import { NextResponse } from "next/server";
+import Product from "@/libs/models/product";
+import { mongoDbConnection } from "@/libs/mongoDb";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: Request, query: { params: { id: any } }) {
-  const {
-    params: { id },
-  } = query;
-  return new NextResponse(JSON.stringify({ id }));
-}
+export async function PUT(request: NextRequest, URLparams: any) {
+    try {
+        const body = await request.json();
+        
+        if (!body) {
+            throw new Error("Request body is null or undefined");
+        }
 
- export async function PUT(req: Request, query: { params: { id: any } }) {
-  const {
-    params: { id },
-    
-  } = query;
-  try {
-    let body = await req.json();
-      await mongooseConnect();
-   
-    const savedProducts = await ProductModel.findByIdAndUpdate(id, body, );
-    return NextResponse.json(savedProducts );
-    
-} catch (error:any ) {
-    return NextResponse.json({error: error.message}, {status: 500});
-    
-    
-}
- 
-}
+        const { id } = URLparams.params;
+        const { name, category, price } = body;
 
-export async function DELETE(req: Request, query: { params: { id: any } }) {
-  const {
-    params: { id },
-  } = query;
-  return new NextResponse(JSON.stringify({ id }));
+        await mongoDbConnection();
+
+        const data = await Product.findByIdAndUpdate(
+            id,
+            { name, category, price },
+            { new: true }
+        );
+
+        return NextResponse.json({msg: "Product updated successfully", data});
+    } catch (error) {
+        return NextResponse.json(
+            {
+                error,
+                msg: "Error updating product",
+            },
+            { status: 400 }
+        );
+    }
 }
