@@ -2,4 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+th,
+td {
+    border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
 
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 4px solid #f3f3f3;
+    border-bottom-color: transparent;
+    animation: rotation 1s linear infinite;
+    box-sizing: border-box;
+    display: inline-block;
+
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
