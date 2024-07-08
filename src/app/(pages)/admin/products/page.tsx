@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductForm from '@/app/components/admin-panel/ProductForm'
+import ProductForm from '@/components/admin-panel/ProductForm'
 
 const products = () => {
   return (

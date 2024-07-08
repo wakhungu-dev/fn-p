@@ -1,10 +1,11 @@
 "use client"
+import Sidebar from '@/components/admin-panel/AdminSidebar';
+import Loader from '@/components/admin-panel/Loader';
+import Login from '@/components/admin-panel/Login';
 import { useAppSelector } from '@/redux/hooks'
 import { useSession } from 'next-auth/react'
 import React, { ReactNode } from 'react'
-import Login from '../components/admin-panel/Login'
-import Loader from '../components/admin-panel/Loader'
-import Sidebar from '../components/admin-panel/AdminSidebar'
+
 
 interface LayoutProps {
     children: ReactNode;

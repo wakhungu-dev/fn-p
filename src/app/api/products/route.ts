@@ -8,11 +8,12 @@ export async function GET(){
         const data = await  Product.find();
         return NextResponse.json(data);
     } catch (error) {
+        console.error('Error fetching products:', error);
         return NextResponse.json({
             error,
             msg: "Error fetching products",
         
-    },{status: 400});
+    },{status: 500});
 
     }
 }
