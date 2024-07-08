@@ -3,17 +3,10 @@ import Popup from '@/components/admin-panel/Popup'
 import ProductRow from '@/components/admin-panel/ProductRow'
 import { setLoading } from '@/redux/features/loadingSlice'
 import { useAppDispatch } from '@/redux/hooks'
+import { Iproduct } from '@/types/core'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-export interface Iproduct {
-  _id: string
-  imgSrc: string
-  fileKey: string
-  name: string
-  price: string
-  category: string
-}
 
 const Dashboard = () => {
   const [products, setProducts] = useState<Iproduct[]>([])
