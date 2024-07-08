@@ -1,6 +1,7 @@
 import { Iproduct } from '@/app/admin/dashboard/page';
 import { setProduct } from '@/redux/features/productSlice';
 import { useAppDispatch } from '@/redux/hooks';
+import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react'
 import { CiEdit } from 'react-icons/ci';
 import { RiDeleteBin5Line, RiDeleteBin6Line } from 'react-icons/ri';
@@ -33,7 +34,7 @@ const onDelete = () => {
         <div>{product.price}</div>
     </td>
     <td className='py-2'>
-        <img src={product.imgSrc} width={40} height={40} alt='product_img' />
+        <Image src={product.imgSrc} width={40} height={40} alt='product_img' />
     </td>
     <td>
         <div className='text-2xl flex items-center gap-2 text-gray-600'>

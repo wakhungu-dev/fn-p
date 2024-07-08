@@ -5,6 +5,7 @@ import { IoAnalytics, IoSettings } from 'react-icons/io5';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 import Link from 'next/link'; // Correct usage of Link
 import { usePathname } from 'next/navigation'; // Ensure this import path is correct for your Next.js version
+import Image from 'next/image';
 
 const Sidebar = () => {
   const pathName = usePathname();
@@ -45,7 +46,7 @@ const Sidebar = () => {
   return (
     <div className='bg-white w-[300px] min-h-screen p-4 shrink-0'>
       <div className='flex items-center gap-4'>
-        <img className='size-12 rounded-lg' src='/logo.jpg' alt='logo' />
+        <Image width={100} height={100} className='size-12 rounded-lg' src='/logo.jpg' alt='logo' />
         <h2 className='text-[20px] font-semibold'>Lynrose_collection</h2>
       </div>
       <ul className='space-y-4 mt-6'>
