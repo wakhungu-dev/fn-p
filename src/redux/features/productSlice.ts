@@ -1,5 +1,5 @@
+import { Iproduct } from "@/types/core";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { Iproduct } from "@/app/admin/dashboard/page"
 
 const initialState: Iproduct = {
     _id:  '',
