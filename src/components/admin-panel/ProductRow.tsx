@@ -1,6 +1,6 @@
-import { Iproduct } from '@/app/admin/dashboard/page';
 import { setProduct } from '@/redux/features/productSlice';
 import { useAppDispatch } from '@/redux/hooks';
+import { Iproduct } from '@/types/core';
 import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react'
 import { CiEdit } from 'react-icons/ci';
