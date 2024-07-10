@@ -3,6 +3,7 @@ export interface Iproduct {
     imgSrc: string
     fileKey: string
     name: string
-    price: string
+    price: {amount: number, currency: string}
     category: string
+    quantity: number
   }

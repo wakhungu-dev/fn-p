@@ -1,8 +1,7 @@
 import FeatureCard from './FeatureCard';
-import{TbTruckDelivery ,TbDiscount2 } from 'react-icons/tb';
+import{TbTruckDelivery ,TbDiscount } from 'react-icons/tb';
 import {RiRefund2Fill} from 'react-icons/ri';
-import {mdSupportAgent} from 'react-icons/md';
-
+import { MdSupportAgent } from 'react-icons/md'; 
 const data =[
     {
         icon: <TbTruckDelivery className='text-4xl' />,
@@ -15,7 +14,7 @@ const data =[
         description: 'Return product within 30 days'
     },
     {
-        icon: <TbDiscount2 className='text-4xl' />,
+        icon: <TbDiscount className='text-4xl' />,
         title: 'Discount',
         description: 'Get discount on all products'
     },
@@ -26,4 +25,14 @@ const data =[
     },
 
 ]
-const
+const Feature = () => {
+return(
+    <div className='container grid gap-1 sm:grid-cols-2 lg:grid-cols-4 mt-8'>
+        {data.map((item) => (
+            <FeatureCard key={item.title} icon={item.icon} title={item.title} description={item.description} />
+        ))}
+        </div>
+)
+
+}
+export default Feature;

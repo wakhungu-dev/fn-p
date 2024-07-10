@@ -2,6 +2,7 @@ import React from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import { useAppSelector } from '@/redux/hooks';
 import CartProduct from '@/components/front-end/CartProduct';
+import { Iproduct } from '@/types/core';
 
 interface PropsType {
     setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,8 +13,8 @@ const Cart: React.FC<PropsType> = ({ setShowCart }) => {
 
     const getTotal = () => {
         let total = 0;
-        products.forEach((item) => {
-            total += item.price * item.quantity;
+        products.forEach((item: Iproduct) => {
+            total += item.price.amount * item.quantity as number;
         });
         return total;
     };

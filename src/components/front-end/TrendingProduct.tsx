@@ -1,19 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import axios from 'axios';
-import { Iproduct } from '@/types/product';
+import { Iproduct } from '@/types/core';
+
+type PropsType = {
+    id: string;
+    imgSrc: string;
+    category: string;
+    price: number;
+};
 
 const TrendingProduct = () => {
     const [products, setProducts] = useState<Iproduct[]>([]);
+    const [loading, setLoading] = useState(true); // State for loading indicator
 
     useEffect(() => {
         axios.get('/api/products')
             .then((res) => {
                 console.log(res.data);
                 setProducts(res.data);
+                setLoading(false); // Turn off loading indicator on success
             })
-            .catch((err: any) => console.log(err));
+            .catch((err: any) => {
+                console.log(err);
+                setLoading(false); // Turn off loading indicator on error
+            });
     }, []);
+
+    if (loading) {
+        return <div>Loading...</div>; // Placeholder for loading state
+    }
 
     return (
         <div className='container mt-32'>
@@ -29,11 +45,8 @@ const TrendingProduct = () => {
             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8'>
                 {products.map((item: Iproduct) => (
                     <ProductCard
-                        key={item._id}
-                        id={item._id}
-                        imgSrc={item.imgSrc}
-                        category={item.category}
-                        price={item.price}
+                        key={item._id} // Ensure key is unique
+                       {...item}
                     />
                 ))}
             </div>
