@@ -20,6 +20,11 @@ const productSchema = new Schema({
         type: String,
         required: true,
     },
+
+    quantity: {
+        type: Number,
+        default: 1
+    },
 })
 
 const Product = models.Product || model("Product", productSchema);
