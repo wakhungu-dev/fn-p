@@ -10,24 +10,24 @@ interface Iproduct {
 
 const initialState: Array<Iproduct> = [];
 
-const productSlice = createSlice({
-    name: 'product',
+const cartSlice = createSlice({
+    name: 'cart',
     initialState,
     reducers: {
-        addProduct: (state, action: PayloadAction<Iproduct>) => {
-            state.push(action.payload);
-        },
-        updateProduct: (state, action: PayloadAction<Iproduct>) => {
-            const index = state.findIndex(product => product.id === action.payload.id);
-            if (index !== -1) {
-                state[index] = action.payload;
+        addToCart: (state, action: PayloadAction<Iproduct>) => {
+            const existingProductIndex = state.findIndex((pro) => pro.id === action.payload.id);
+            if (existingProductIndex === -1) {
+                state.push(action.payload);
+            } else {
+                state[existingProductIndex].quantity += 1;
             }
         },
-        removeProduct: (state, action: PayloadAction<string>) => {
-            return state.filter(product => product.id !== action.payload);
+        removeFromCart: (state, action: PayloadAction<string>) => {
+            const id = action.payload;
+            return state.filter((item) => item.id !== id);
         },
     },
 });
 
-export const { addProduct, updateProduct, removeProduct } = productSlice.actions;
-export default productSlice.reducer;
+export const { addToCart, removeFromCart } = cartSlice.actions;
+export default cartSlice.reducer;
