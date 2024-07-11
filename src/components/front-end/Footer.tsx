@@ -25,7 +25,7 @@ const Footer = () => {
                     <p className="text-sm mb-2">123 Ecommerce St.</p>
                     <p className="text-sm mb-2">Nairobi, Kenya</p>
                     <p className="text-sm mb-2">Email: support@ecommerce.co.ke</p>
-                    <p className="text-sm">Phone: +254 700 000 000</p>
+                    <p className="text-sm">Phone: +254 700 107582</p>
                 </div>
                 <div>
                     <h3 className="text-lg font-bold mb-4">Follow Us</h3>

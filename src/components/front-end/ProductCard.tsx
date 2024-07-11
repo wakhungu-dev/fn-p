@@ -2,19 +2,21 @@
 import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { useAppDispatch } from '@/redux/hooks';
-import Image from 'next/image';
 import { Iproduct } from '@/types/core';
 import { addToCart } from '@/redux/features/cartSlice';
+import Image from 'next/image';
 
-interface PropsType extends Iproduct {
+interface PropsType  {
+    product: string;
+
    
 }
 
 const ProductCard = ({
-    _id,imgSrc , category, name, price,fileKey
-}: PropsType) => {
+product}: PropsType) => {
+    let {_id, imgSrc, category, name, price, fileKey} = JSON.parse (product) as Iproduct;
     const dispatch = useAppDispatch();
-
+console.log({price: price})
     const addProductToCart = () => {
         const payload: Iproduct &{quantity:number} = {
            _id, imgSrc, category, name, price, quantity: 1, fileKey
@@ -34,13 +36,13 @@ const ProductCard = ({
                 <div className='mt-3 flex text-[#FFA500] items-center'>
                     <AiFillStar />
                     <AiFillStar />
-                    <AiFillStar />
+                    <AiFillStar />``
                     <AiFillStar />
                     <AiOutlineStar />
                     <p className='text-gray-600 text-[14px] ml-2'>(3 reviews)</p>
                 </div>
                 <div className='flex gap-2 items-center mt-4'>
-                    <h2 className='font-medium text-accent text-xl'>${price.amount} {price.currency||'ksh'}</h2>
+                    <h2 className='font-medium text-accent text-xl'>${price?.amount} {price?.currency||'ksh'}</h2>
                     <div
                         className='flex gap-2 items-center bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
                         onClick={addProductToCart}

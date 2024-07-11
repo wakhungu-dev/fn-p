@@ -18,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(setLoading(true))
 
-    axios.get("/api/get_products")
+    axios.get("/api/products")
       .then((res) => {
         setProducts(res.data)
       })

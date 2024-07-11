@@ -1,6 +1,7 @@
 
 import TrendingProduct from '@/components/front-end/TrendingProduct'
 import { NavbarCartWrapper } from '@/components/front-end/NavbarCartWrapper'
+import Footer from '@/components/front-end/Footer'
 
 
 const Home = async () => {
@@ -10,6 +11,7 @@ const Home = async () => {
     <main>
       <NavbarCartWrapper />
       <TrendingProduct  />
+      <Footer />
     </main>
   )
 }

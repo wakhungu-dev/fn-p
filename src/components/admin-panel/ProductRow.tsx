@@ -33,7 +33,7 @@ const ProductRow: React.FC<PropsType> = ({ SrNo, setOpenPopup, setUpdateTable, p
         axios.delete('/api/uploadthing', { data: payload })
             .then(res => {
                 console.log(res.data);
-                return axios.delete('/api/delete_product', { data: { id: product._id } });
+                return axios.delete('/api/product/' + product._id, { data: { id: product._id } });
             })
             .then(res => {
                 console.log(res.data);

@@ -9,13 +9,13 @@ import Navbar from "./Navbar";
 interface PropsType extends React.PropsWithChildren{
 
 }
- export const NavbarCartWrapper = (props:PropsType) => {
+ export const NavbarCartWrapper = () => {
     const [showCart, setShowCart] = useState(false)
 
     return (
         <>
         <Navbar setShowCart={setShowCart} />
-        {showCart && <Cart setShowCart={setShowCart} />}
+        {showCart?  <Cart setShowCart={setShowCart}  /> : null}
         <Hero />
         <Feature/>
         </>

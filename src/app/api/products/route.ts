@@ -43,11 +43,11 @@ export async function POST(request: NextRequest) {
     }
 }
 
-export async function DELETE(request: NextRequest) {
+export async function DELETE(request: NextRequest, query: { params: { id: string } }) {
     try {
         await mongoDbConnection();
         const body = await request.json();
-        const { id } = body;
+        const { id } = query.params;
 
         if (!id) {
             return NextResponse.json({ error: 'Product ID is required' }, { status: 400 });
