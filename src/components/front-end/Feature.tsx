@@ -19,7 +19,7 @@ const data =[
         description: 'Get discount on all products'
     },
     {
-        icon: <mdSupportAgent className='text-4xl' />,
+        icon: <MdSupportAgent className={'text-4xl'} />,
         title: 'Support 24/7',
         description: 'Contact us anytime'
     },

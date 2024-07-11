@@ -1,9 +1,10 @@
+"use client"
 import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { useAppDispatch } from '@/redux/hooks';
-import { addToCart } from '@/redux/features/cartSlice';
 import Image from 'next/image';
 import { Iproduct } from '@/types/core';
+import { addToCart } from '@/redux/features/cartSlice';
 
 interface PropsType extends Iproduct {
    

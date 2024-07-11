@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const Hero = () => {
@@ -23,7 +24,7 @@ const Hero = () => {
                     </div>
                     </div>
                     <div>
-                        <img className='ml-auto' src='/hero.png' alt='hero' />
+                        <Image width={50} height={50} className='ml-auto' src='/hero.png' alt='hero' />
                     </div>
 
                 </div>

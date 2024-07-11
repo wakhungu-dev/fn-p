@@ -58,7 +58,7 @@ const ProductRow: React.FC<PropsType> = ({ SrNo, setOpenPopup, setUpdateTable, p
                 <div>{product.name}</div>
             </td>
             <td>
-                <div>{product.price}</div>
+                <div>{product.price.amount}</div>
             </td>
             <td className="py-2">
                 <Image src={product.imgSrc} width={40} height={40} alt="product_img" />

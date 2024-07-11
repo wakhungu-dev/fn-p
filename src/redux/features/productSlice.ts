@@ -6,8 +6,9 @@ const initialState: Iproduct = {
     imgSrc:  '',
     fileKey:  '',
     name:  '',
-    price: '',
+    price: {amount: 0, currency: 'ksh'},
     category:  '',
+    quantity:  1,
 }
  export const productSlice = createSlice({
     name: "productSlice",

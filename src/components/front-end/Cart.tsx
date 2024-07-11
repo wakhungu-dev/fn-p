@@ -9,7 +9,7 @@ interface PropsType {
 }
 
 const Cart: React.FC<PropsType> = ({ setShowCart }) => {
-    const products = useAppSelector((state) => state.cart);
+    const {items: products} = useAppSelector((state) => state.cart);
 
     const getTotal = () => {
         let total = 0;
@@ -31,11 +31,7 @@ const Cart: React.FC<PropsType> = ({ setShowCart }) => {
                     {products?.map((item:any) => (
                         <CartProduct
                             key={item._id}
-                            _id={item._id}
-                            Image={item.Image}
-                            title={item.title}
-                            price={item.price}
-                            quantity={item.quantity}
+                            {...item}
                         />
                     ))}
                 </div>

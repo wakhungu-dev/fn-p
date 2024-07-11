@@ -8,7 +8,7 @@ interface PropsType {
 }
 
 const Navbar = ({ setShowCart }: PropsType) => {
-    const cartCount = useAppSelector((state) => state.cart.length); // Assuming state.cart is correct
+    const cartCount = useAppSelector((state) => state.cart.items.length); // Assuming state.cart is correct
 
     return (
         <div className='pt-4 bg-white top-0 sticky'>
