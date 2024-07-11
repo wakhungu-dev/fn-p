@@ -37,7 +37,7 @@ const Cart: React.FC<PropsType> = ({ setShowCart }) => {
                 </div>
                 <div className='flex justify-between items-center font-medium text-xl py-4'>
                     <p>Total:</p>
-                    <p>${getTotal()}.00</p>
+                    <p>Ksh{getTotal()}.00</p>
                 </div>
                 <button className='bg-black text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
                     View cart
