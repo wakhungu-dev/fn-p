@@ -24,7 +24,7 @@ const Footer = () => {
                     <h3 className="text-lg font-bold mb-4">Contact Us</h3>
                     <p className="text-sm mb-2">123 Ecommerce St.</p>
                     <p className="text-sm mb-2">Nairobi, Kenya</p>
-                    <p className="text-sm mb-2">Email: support@ecommerce.co.ke</p>
+                    <p className="text-sm mb-2">Email: support@lynrose.co.ke</p>
                     <p className="text-sm">Phone: +254 700 107582</p>
                 </div>
                 <div>
@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="mt-8 text-center text-sm text-gray-400">
-                <p>&copy; {new Date().getFullYear()} Ecommerce Kenya. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} lynrose Kenya. All rights reserved.</p>
             </div>
         </footer>
     );
