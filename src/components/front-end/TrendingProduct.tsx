@@ -1,4 +1,4 @@
-
+export const revalidate = 60;
 import React, { useEffect,FC, useState } from 'react';
 import ProductCard from './ProductCard';
 import { Iproduct } from '@/types/core';
