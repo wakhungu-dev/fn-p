@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react';
+
+"use client"
+import React, { useEffect,FC, useState } from 'react';
 import ProductCard from './ProductCard';
 import axios from 'axios';
 import { Iproduct } from '@/types/core';
 
-type PropsType = {
-    id: string;
-    imgSrc: string;
-    category: string;
-    price: number;
+type PropsType  = {
+    productz: Iproduct[]
 };
 
-const TrendingProduct = () => {
-    const [products, setProducts] = useState<Iproduct[]>([]);
+const TrendingProduct: FC<PropsType> = ({productz}) => {
+    const [products, setProducts] = useState<Iproduct[]>(productz);
     const [loading, setLoading] = useState(true); // State for loading indicator
 
-    useEffect(() => {
-        axios.get('/api/products')
-            .then((res) => {
-                console.log(res.data);
-                setProducts(res.data);
-                setLoading(false); // Turn off loading indicator on success
-            })
-            .catch((err: any) => {
-                console.log(err);
-                setLoading(false); // Turn off loading indicator on error
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get('/api/products')
+    //         .then((res) => {
+    //             console.log(res.data);
+    //             setProducts(res.data);
+    //             setLoading(false); // Turn off loading indicator on success
+    //         })
+    //         .catch((err: any) => {
+    //             console.log(err);
+    //             setLoading(false); // Turn off loading indicator on error
+    //         });
+    // }, []);
 
-    if (loading) {
+    if (!products || products.length === 0) {
         return <div>Loading...</div>; // Placeholder for loading state
     }
 

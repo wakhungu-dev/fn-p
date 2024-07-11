@@ -1,20 +1,23 @@
-'use client'
-import Navbar from '@/components/front-end/Navbar'
-import React, { useState } from 'react'
-import Cart from '@/components/front-end/Cart'
-import Hero from '@/components/front-end/Hero'
-import Feature from '@/components/front-end/Feature'
 
+import TrendingProduct from '@/components/front-end/TrendingProduct'
+import { mongoDbConnection } from '@/libs/mongoDb'
+import Product from '@/libs/models/product'
+import { NavbarCartWrapper } from '@/components/front-end/NavbarCartWrapper'
+const getProducts = async () => {
+await mongoDbConnection();
+const data = await Product.find();
+return data;
 
-const Home = () => {
-  const [showCart, setShowCart] = useState(false)
+}
 
-  return (
+const Home = async () => {
+const products = await getProducts();
+if (!products) return <div>Loading...</div>;
+ return (
+
     <main>
-      <Navbar setShowCart={setShowCart} />
-      {showCart && <Cart setShowCart={setShowCart} />}
-      <Hero />
-      <Feature/>
+      <NavbarCartWrapper />
+      <TrendingProduct productz = {products}/>
     </main>
   )
 }

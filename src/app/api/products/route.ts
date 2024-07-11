@@ -37,9 +37,9 @@ export async function POST(request: NextRequest) {
         await newProduct.save();
 
         return NextResponse.json({ message: 'Product added successfully', product: newProduct }, { status: 201 });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error adding product:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        return NextResponse.json({ error: 'Internal Server Error '+ error.message }, { status: 500 });
     }
 }
 
