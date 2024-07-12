@@ -1,5 +1,6 @@
 import Product from "@/libs/models/product";
 import { mongoDbConnection } from "@/libs/mongoDb";
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
@@ -35,6 +36,8 @@ export async function POST(request: NextRequest) {
         });
 
         await newProduct.save();
+        revalidatePath('/products');
+
 
         return NextResponse.json({ message: 'Product added successfully', product: newProduct }, { status: 201 });
     } catch (error: any) {
