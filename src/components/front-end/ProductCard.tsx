@@ -42,7 +42,7 @@ console.log({price: price})
                     <p className='text-gray-600 text-[14px] ml-2'>(3 reviews)</p>
                 </div>
                 <div className='flex gap-2 items-center mt-4'>
-                    <h2 className='font-medium text-accent text-xl'>${price?.amount} {price?.currency||'ksh'}</h2>
+                    <h2 className='font-medium text-accent text-xl'> {price?.currency||'ksh'}. {price?.amount} </h2>
                     <div
                         className='flex gap-2 items-center bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
                         onClick={addProductToCart}
