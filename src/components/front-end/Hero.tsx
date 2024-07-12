@@ -31,7 +31,7 @@ const Hero = () => {
             width={50}
             height={50}
             className="ml-auto"
-            src="/hero.png"
+            src="/hero.jpeg"
             alt="hero"
           />
         </div>

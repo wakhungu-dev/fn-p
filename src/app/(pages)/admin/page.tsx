@@ -1,4 +1,5 @@
 "use client"
+export const revalidate = 60
 import Popup from '@/components/admin-panel/Popup'
 import ProductRow from '@/components/admin-panel/ProductRow'
 import { setLoading } from '@/redux/features/loadingSlice'
@@ -18,7 +19,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(setLoading(true))
 
-    axios.get("/api/products")
+    axios.get("/api/products",)
       .then((res) => {
         setProducts(res.data)
       })
