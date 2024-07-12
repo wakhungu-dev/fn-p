@@ -5,7 +5,7 @@ import { setLoading } from '@/redux/features/loadingSlice'
 import { useAppDispatch } from '@/redux/hooks'
 import { Iproduct } from '@/types/core'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { cache, useEffect, useState } from 'react'
 
 
 const Dashboard = () => {
@@ -18,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(setLoading(true))
 
-    axios.get("/api/products", {cache: 'no-store'})
+    axios.get("/api/products")
       .then((res) => {
         setProducts(res.data)
       })
@@ -56,6 +56,7 @@ const Dashboard = () => {
                 product={product}
               
               /> )
+
             }
 
           </tbody>

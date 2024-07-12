@@ -11,7 +11,7 @@ const Hero = () => {
               Starting at <span className="font-bold">ksh999.00</span>
             </p>
             <h1 className="text-topHeadingPrimary font-bold text-4xl md:text-5xl">
-              The best suit collection 2024
+              lynrose collection
             </h1>
             <h3 className="text-2xl font-['oregano',cursive]">
               Excluisive offer <span className="text-red-500">-10%</span> off
