@@ -1,5 +1,5 @@
 "use client"
-export const revalidate = 60
+// export const revalidate = 60
 import Popup from '@/components/admin-panel/Popup'
 import ProductRow from '@/components/admin-panel/ProductRow'
 import { setLoading } from '@/redux/features/loadingSlice'
