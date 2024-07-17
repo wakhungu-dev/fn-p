@@ -44,7 +44,7 @@ console.log({price: price})
                 <div className='flex gap-2 items-center mt-4'>
                     <h2 className='font-medium text-accent text-xl'> {price?.currency||'ksh'}. {price?.amount} </h2>
                     <div
-                        className='flex gap-2 items-center bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
+                        className='flex gap-2 items-center rounded-md bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
                         onClick={addProductToCart}
                     >
                         <AiOutlineShoppingCart />
