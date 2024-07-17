@@ -26,7 +26,7 @@ console.log({price: price})
     };
 
     return (
-        <div className='border border-gray-200'>
+        <div className='border border-gray-200 rounded-md shadow-md '>
             <div className='text-center border-b border-gray-200'>
                 <Image src={imgSrc} alt={name} width={100} height={100} />
             </div>
