@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Iproduct } from '@/types/core';
 import { removeFromCart, incrementQuantity, decrementQuantity } from '@/redux/features/cartSlice';
 import { DecreamentButton } from '../DecreamentButton';
+import { IncreamentButton } from '../IncreamentButton';
 
 interface PropsType extends Iproduct {}
 
@@ -33,7 +34,7 @@ const CartProduct: React.FC<PropsType> = ({
                         {/* <button onClick={handleDecrement} className='bg-gray-200 p-1 rounded'>-</button> */}
                         <DecreamentButton id = {_id as string}  className='bg-gray-200 p-1 rounded'>-</DecreamentButton>
                         <span>{quantity}</span>
-                        <button onClick={handleIncrement} className='bg-gray-200 p-1 rounded'>+</button>
+                        <IncreamentButton id = {_id as  string} className='bg-gray-200 p-1 rounded'>+</IncreamentButton>
                     </div>
                 </div>
             </div>

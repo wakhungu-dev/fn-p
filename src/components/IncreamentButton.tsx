@@ -6,10 +6,11 @@ import React from 'react'
 interface IncreamentButtonProps {
     children: React.ReactNode,
     id: string
+    className?: string
     
 }
 
- export const IncreamentButton  = ({children, id}: IncreamentButtonProps) => {
+ export const IncreamentButton  = ({children, id, className}: IncreamentButtonProps) => {
     const dispatch = useAppDispatch();
 
     const handleIncrement = () => {
