@@ -5,6 +5,7 @@ import { RxCross1 } from 'react-icons/rx';
 import Image from 'next/image';
 import { Iproduct } from '@/types/core';
 import { removeFromCart, incrementQuantity, decrementQuantity } from '@/redux/features/cartSlice';
+import { DecreamentButton } from '../DecreamentButton';
 
 interface PropsType extends Iproduct {}
 
@@ -29,7 +30,8 @@ const CartProduct: React.FC<PropsType> = ({
                     <h3 className='font-medium'>{name}</h3>
                     <p className='text-gray-600 text-[14px]'>{quantity} * Ksh{price.amount}.00</p>
                     <div className='flex items-center space-x-2'>
-                        <button onClick={handleDecrement} className='bg-gray-200 p-1 rounded'>-</button>
+                        {/* <button onClick={handleDecrement} className='bg-gray-200 p-1 rounded'>-</button> */}
+                        <DecreamentButton id = {_id as string}  className='bg-gray-200 p-1 rounded'>-</DecreamentButton>
                         <span>{quantity}</span>
                         <button onClick={handleIncrement} className='bg-gray-200 p-1 rounded'>+</button>
                     </div>
