@@ -10,14 +10,14 @@ interface IncreamentButtonProps {
     
 }
 
- export const IncreamentButton  = ({children, id, className}: IncreamentButtonProps) => {
+ export const IncreamentButton  = ({children, id, className = ''}: IncreamentButtonProps) => {
     const dispatch = useAppDispatch();
 
     const handleIncrement = () => {
         dispatch(incrementQuantity(id as string));
     };
   return (
-    <button onClick={handleIncrement} >
+  <button onClick={handleIncrement} className={`${className}`} >
       {children}
     </button>
 
