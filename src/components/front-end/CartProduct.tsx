@@ -27,7 +27,7 @@ const CartProduct: React.FC<PropsType> = ({
                 <Image className='w-[80px]' src={imgSrc} alt={name} width={80} height={80} />
                 <div className='space-y-2'>
                     <h3 className='font-medium'>{name}</h3>
-                    <p className='text-gray-600 text-[14px]'>{quantity} * ${price.amount}.00</p>
+                    <p className='text-gray-600 text-[14px]'>{quantity} * Ksh{price.amount}.00</p>
                     <div className='flex items-center space-x-2'>
                         <button onClick={handleDecrement} className='bg-gray-200 p-1 rounded'>-</button>
                         <span>{quantity}</span>
