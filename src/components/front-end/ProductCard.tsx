@@ -1,6 +1,7 @@
 /**
  * Represents a product card component.
  */
+"use client"
 import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { useAppDispatch } from '@/redux/hooks';
