@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { useAppDispatch } from '@/redux/hooks';
@@ -6,27 +6,26 @@ import { Iproduct } from '@/types/core';
 import { addToCart } from '@/redux/features/cartSlice';
 import Image from 'next/image';
 
-interface PropsType  {
+interface PropsType {
     product: string;
-
-   
 }
 
 const ProductCard = ({
-product}: PropsType) => {
-    let {_id, imgSrc, category, name, price, fileKey} = JSON.parse (product) as Iproduct;
+    product
+}: PropsType) => {
+    let { _id, imgSrc, category, name, price, fileKey } = JSON.parse(product) as Iproduct;
     const dispatch = useAppDispatch();
-console.log({price: price})
+
     const addProductToCart = () => {
-        const payload: Iproduct &{quantity:number} = {
-           _id, imgSrc, category, name, price, quantity: 1, fileKey
+        const payload: Iproduct & { quantity: number } = {
+            _id, imgSrc, category, name, price, quantity: 1, fileKey
         };
         dispatch(addToCart(payload));
         toast.success('Added to cart');
     };
 
     return (
-        <div className='border border-gray-200 rounded-md shadow-md '>
+        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow duration-300'>
             <div className='text-center border-b border-gray-200'>
                 <Image src={imgSrc} alt={name} width={100} height={100} />
             </div>
@@ -36,19 +35,21 @@ console.log({price: price})
                 <div className='mt-3 flex text-[#FFA500] items-center'>
                     <AiFillStar />
                     <AiFillStar />
-                    <AiFillStar />``
+                    <AiFillStar />
                     <AiFillStar />
                     <AiOutlineStar />
                     <p className='text-gray-600 text-[14px] ml-2'>(3 reviews)</p>
                 </div>
                 <div className='flex gap-2 items-center mt-4'>
-                    <h2 className='font-medium text-accent text-xl'> {price?.currency||'ksh'}. {price?.amount} </h2>
+                    <h2 className='font-medium text-accent text-xl'>
+                        {price?.currency || 'ksh'}. {price?.amount}
+                    </h2>
                     <div
-                        className='flex gap-2 items-center rounded-md bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
+                        className='group-hover:bg-accent group-hover:shadow-lg flex gap-2 items-center rounded-md bg-pink text-white px-4 py-2 cursor-pointer'
                         onClick={addProductToCart}
                     >
                         <AiOutlineShoppingCart />
-                        <p>Add to cart</p>
+                        <p className='group-hover:text-black'>Add to cart</p>
                     </div>
                 </div>
             </div>
