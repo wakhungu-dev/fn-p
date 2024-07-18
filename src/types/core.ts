@@ -6,4 +6,8 @@ export interface Iproduct {
     price: {amount: number, currency: string}
     category: string
     quantity: number
+    reviews: {
+      rating: number
+      count: number
+    }
   }
