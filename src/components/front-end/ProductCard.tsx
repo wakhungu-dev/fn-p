@@ -25,7 +25,7 @@ const ProductCard = ({
     };
 
     return (
-        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow duration-300'>
+        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow duration-300 hover:shadow-lg'>
             <div className='text-center border-b border-gray-200'>
                 <Image src={imgSrc} alt={name} width={100} height={100} />
             </div>
@@ -44,13 +44,11 @@ const ProductCard = ({
                     <h2 className='font-medium text-accent text-xl'>
                         {price?.currency || 'ksh'}. {price?.amount}
                     </h2>
-                    <div
-                        className='group-hover:bg-accent group-hover:shadow-lg flex gap-2 items-center rounded-md bg-pink text-white px-4 py-2 cursor-pointer'
-                        onClick={addProductToCart}
-                    >
-                        <AiOutlineShoppingCart />
-                        <p className='group-hover:text-black'>Add to cart</p>
-                    </div>
+                </div>
+                <div className='hidden group-hover:flex gap-2 items-center rounded-md bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
+                    onClick={addProductToCart}>
+                    <AiOutlineShoppingCart />
+                    <p className='group-hover:text-black'>Add to cart</p>
                 </div>
             </div>
         </div>
