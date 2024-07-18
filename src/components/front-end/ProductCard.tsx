@@ -25,7 +25,7 @@ const ProductCard = ({
     };
 
     return (
-        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow duration-300 hover:shadow-lg'>
+        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow transform duration-300 hover:shadow-lg hover:scale-105'>
             <div className='text-center border-b border-gray-200'>
                 <Image src={imgSrc} alt={name} width={100} height={100} />
             </div>
