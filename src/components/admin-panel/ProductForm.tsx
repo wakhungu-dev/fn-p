@@ -19,7 +19,12 @@ const defaultPayload: Ipayload = {
   category: "",
   price: { amount: 0, currency: "ksh" },
   quantity: 1,
-};
+  reviews: {
+    rating: 0,
+    count: 0,
+  },  
+  }
+
 const ProductForm = () => {
   const [payload, setPayload] = useState<Ipayload>(defaultPayload);
 

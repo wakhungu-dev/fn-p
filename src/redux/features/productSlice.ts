@@ -9,6 +9,10 @@ const initialState: Iproduct = {
     price: {amount: 0, currency: 'ksh'},
     category:  '',
     quantity:  1,
+    reviews: {
+      rating: 0,
+      count: 0
+    }
 }
  export const productSlice = createSlice({
     name: "productSlice",
