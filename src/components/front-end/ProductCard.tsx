@@ -77,7 +77,7 @@ const ProductCard = ({
                         {price?.currency || 'ksh'}. {price?.amount}
                     </h2>
                 </div>
-                <div className='hidden group-hover:flex gap-2 items-center rounded-md bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent'
+                <div className='hidden group-hover:flex gap-2 items-center rounded-md bg-yellow-500 text-white px-4 py-2 cursor-pointer hover:bg-green-500 transition-colors'
                     onClick={addProductToCart}>
                     <AiOutlineShoppingCart />
                     <p className='group-hover:text-black'>Add to cart</p>
