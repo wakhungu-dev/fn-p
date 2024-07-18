@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
 import { useAppSelector } from '@/redux/hooks';
+// import { ProductList } from '../ProductList';
 
 interface PropsType {
     setShowCart: Dispatch<SetStateAction<boolean>>;
@@ -9,7 +10,8 @@ interface PropsType {
 
 const Navbar = ({ setShowCart }: PropsType) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const cartCount = useAppSelector((state) => state.cart.items.length); // Assuming state.cart is correct
+    const cartCount = useAppSelector((state) => state.cart.items.length);
+    // const products = useAppSelector((state) => state.products); // Accessing products state correctly
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
@@ -17,8 +19,8 @@ const Navbar = ({ setShowCart }: PropsType) => {
 
     const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Perform the search logic here, for example, redirecting to a search results page or filtering products
         console.log('Search query:', searchQuery);
+        // Perform search logic here if needed
     };
 
     return (
@@ -26,7 +28,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
             <div className='container'>
                 <div className='flex justify-between items-center'>
                     <div className='text-4xl font-bold'>
-                        Logo
+                        Lynrose
                     </div>
                     <form
                         className='lg:flex hidden w-full max-w-[500px]'
@@ -62,13 +64,14 @@ const Navbar = ({ setShowCart }: PropsType) => {
                         >
                             <AiOutlineShoppingCart />
                             <div className='absolute top-[-15px] right-[-10px] bg-red-600 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center'>
-                            {cartCount}
+                                {cartCount}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='border-b border-gray-200 pt-4' />
             </div>
+            {/* <ProductList products={products} searchQuery={searchQuery} /> Pass products to ProductList */}
         </div>
     );
 };
