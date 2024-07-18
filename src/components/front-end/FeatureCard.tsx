@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Define the props type for the FeatureCard component
 interface PropsType {
     icon: React.ReactNode;
     title: string;

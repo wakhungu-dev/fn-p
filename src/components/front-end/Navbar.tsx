@@ -30,6 +30,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                     <div className='text-4xl font-bold'>
                         Lynrose
                     </div>
+                    {/* Search form */}
                     <form
                         className='lg:flex hidden w-full max-w-[500px]'
                         onSubmit={handleSearchSubmit}
@@ -48,7 +49,9 @@ const Navbar = ({ setShowCart }: PropsType) => {
                             <BsSearch />
                         </button>
                     </form>
+                    {/* User account and cart */}
                     <div className='flex gap-4 md:gap-8 items-center'>
+                        {/* User account */}
                         <div className='md:flex hidden gap-3'>
                             <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center'>
                                 <AiOutlineUser />
@@ -58,11 +61,13 @@ const Navbar = ({ setShowCart }: PropsType) => {
                                 <p className='font-medium'>Your Account</p>
                             </div>
                         </div>
+                        {/* Cart */}
                         <div
                             className='text-gray-500 text-[32px] relative cursor-pointer'
                             onClick={() => setShowCart(true)}
                         >
                             <AiOutlineShoppingCart />
+                            {/* Cart count */}
                             <div className='absolute top-[-15px] right-[-10px] bg-red-600 text-white w-[25px] h-[25px] rounded-full flex items-center justify-center'>
                                 {cartCount}
                             </div>
@@ -71,6 +76,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                 </div>
                 <div className='border-b border-gray-200 pt-4' />
             </div>
+            {/* Product list */}
             {/* <ProductList products={products} searchQuery={searchQuery} /> Pass products to ProductList */}
         </div>
     );

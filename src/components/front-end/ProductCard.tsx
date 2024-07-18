@@ -1,4 +1,6 @@
-"use client";
+/**
+ * Represents a product card component.
+ */
 import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { useAppDispatch } from '@/redux/hooks';
@@ -6,16 +8,27 @@ import { Iproduct } from '@/types/core';
 import { addToCart } from '@/redux/features/cartSlice';
 import Image from 'next/image';
 
+/**
+ * Props for the ProductCard component.
+ */
 interface PropsType {
     product: string;
 }
 
+/**
+ * Renders a product card.
+ * @param {PropsType} props - The component props.
+ * @returns {JSX.Element} The rendered product card.
+ */
 const ProductCard = ({
     product
 }: PropsType) => {
     const { _id, imgSrc, category, name, price, fileKey, reviews } = JSON.parse(product) as Iproduct;
     const dispatch = useAppDispatch();
 
+    /**
+     * Adds the product to the cart.
+     */
     const addProductToCart = () => {
         const payload: Iproduct & { quantity: number } = {
             _id, imgSrc, category, name, price, quantity: 1, fileKey, reviews // Include reviews in the payload
@@ -24,6 +37,11 @@ const ProductCard = ({
         toast.success('Added to cart');
     };
 
+    /**
+     * Renders the star rating.
+     * @param {number} rating - The rating value.
+     * @returns {JSX.Element[]} The rendered star icons.
+     */
     const renderStars = (rating: number) => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {

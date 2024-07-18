@@ -7,17 +7,21 @@ const Hero = () => {
       <div className="container grid md:grid-cols-2 py-8">
         <div className="flex items-center">
           <div className="max-w-[450px] space-y-4">
+            {/* Price */}
             <p className="text-topHeadingSecondary">
               Starting at <span className="font-bold">ksh999.00</span>
             </p>
+            {/* Title */}
             <h1 className="text-topHeadingPrimary font-bold text-4xl md:text-5xl">
               lynrose collection
             </h1>
+            {/* Offer */}
             <h3 className="text-2xl font-['oregano',cursive]">
               Excluisive offer <span className="text-red-500">-10%</span> off
               this week
             </h3>
 
+            {/* Shop now link */}
             <Link
               className="inline-block bg-white  px-6 py-3 hover:bg-accent hover:text-white"
               href="#"
@@ -26,6 +30,7 @@ const Hero = () => {
             </Link>
           </div>
         </div>
+        {/* Hero image */}
         <div>
           <Image
             width={50}
