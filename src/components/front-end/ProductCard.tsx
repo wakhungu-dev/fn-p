@@ -13,12 +13,12 @@ interface PropsType {
 const ProductCard = ({
     product
 }: PropsType) => {
-    let { _id, imgSrc, category, name, price, fileKey, reviews } = JSON.parse(product) as Iproduct;
+    const { _id, imgSrc, category, name, price, fileKey, reviews } = JSON.parse(product) as Iproduct;
     const dispatch = useAppDispatch();
 
     const addProductToCart = () => {
         const payload: Iproduct & { quantity: number } = {
-            _id, imgSrc, category, name, price, quantity: 1, fileKey, reviews
+            _id, imgSrc, category, name, price, quantity: 1, fileKey, reviews // Include reviews in the payload
         };
         dispatch(addToCart(payload));
         toast.success('Added to cart');
@@ -45,8 +45,8 @@ const ProductCard = ({
                 <p className='text-gray-500 text-[14px] font-medium'>{category}</p>
                 <h2 className='font-medium'>{name}</h2>
                 <div className='mt-3 flex text-[#FFA500] items-center'>
-                    {renderStars(reviews.rating)}
-                    <p className='text-gray-600 text-[14px] ml-2'>({reviews.count} reviews)</p>
+                    {reviews && renderStars(reviews.rating)} {/* Check if reviews is defined */}
+                    <p className='text-gray-600 text-[14px] ml-2'>({reviews?.count || 0} reviews)</p> {/* Default to 0 if reviews is undefined */}
                 </div>
                 <div className='flex gap-2 items-center mt-4'>
                     <h2 className='font-medium text-accent text-xl'>
