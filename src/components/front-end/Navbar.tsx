@@ -20,7 +20,6 @@ const Navbar = ({ setShowCart }: PropsType) => {
     const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Search query:', searchQuery);
-        // Perform search logic here if needed
     };
 
     return (

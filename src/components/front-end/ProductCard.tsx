@@ -32,7 +32,7 @@ const ProductCard = ({
      */
     const addProductToCart = () => {
         const payload: Iproduct & { quantity: number } = {
-            _id, imgSrc, category, name, price, quantity: 1, fileKey, reviews // Include reviews in the payload
+            _id, imgSrc, category, name, price, quantity: 1, fileKey, reviews:[] // Include reviews in the payload
         };
         dispatch(addToCart(payload));
         toast.success('Added to cart');
@@ -64,13 +64,13 @@ const ProductCard = ({
                 <p className='text-gray-500 text-[14px] font-medium'>{category}</p>
                 <h2 className='font-medium'>{name}</h2>
                 <div className='mt-3 flex text-[#FFA500] items-center'>
-                    {reviews && reviews.rating > 0 ? (
-                        renderStars(reviews.rating)
+                    {reviews && reviews[0].rating > 0 ? (
+                        renderStars(reviews[0].rating)
                     ) : (
                         <p className='text-gray-600 text-[14px] ml-2'>No reviews yet</p>
                     )}
-                    {reviews && reviews.rating > 0 && (
-                        <p className='text-gray-600 text-[14px] ml-2'>({reviews.count} reviews)</p>
+                    {reviews && reviews[0].rating > 0 && (
+                        <p className='text-gray-600 text-[14px] ml-2'>({reviews.length} reviews)</p>
                     )}
                 </div>
                 <div className='flex gap-2 items-center mt-4'>
