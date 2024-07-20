@@ -41,7 +41,7 @@ const TrendingProduct: FC<PropsType> = async () => {
                 {Array.isArray(products)? products.map((item: Iproduct) => (
                     <ProductCard
                         key={item._id}
-                        product={item} // Ensure key is unique
+                        product={item}  // Ensure key is unique
                     />
                 )): null}
             </div>

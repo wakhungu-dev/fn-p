@@ -1,3 +1,11 @@
+/**
+ * Represents a product card component.
+ *
+ * @component
+ * @param {PropsType} props - The props for the component.
+ * @param {Iproduct} props.product - The product data.
+ * @returns {JSX.Element} The rendered product card.
+ */
 "use client";
 
 import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
@@ -33,12 +41,17 @@ const ProductCard = ({ product }: PropsType): JSX.Element => {
 
     return (
         <div className='group border border-gray-200 rounded-md shadow-md transition-shadow transform duration-300 hover:shadow-lg hover:scale-105'>
+            {/* Product image */}
             <div className='text-center border-b border-gray-200'>
                 <Image src={imgSrc} alt={name} width={100} height={100} />
             </div>
+            {/* Product details */}
             <div className='px-8 py-4'>
+                {/* Product category */}
                 <p className='text-gray-500 text-[14px] font-medium'>{category}</p>
+                {/* Product name */}
                 <h2 className='font-medium'>{name}</h2>
+                {/* Product rating */}
                 <div className='mt-3 flex text-[#FFA500] items-center'>
                     {reviews && reviews.length > 0 && reviews[0].rating !== undefined ? (
                         <>
@@ -49,11 +62,13 @@ const ProductCard = ({ product }: PropsType): JSX.Element => {
                         <p className='text-gray-600 text-[14px] ml-2'>No reviews yet</p>
                     )}
                 </div>
+                {/* Product price */}
                 <div className='flex gap-2 items-center mt-4'>
                     <h2 className='font-medium text-accent text-xl'>
                         {price?.currency || 'ksh'}. {price?.amount}
                     </h2>
                 </div>
+                {/* Add to cart button */}
                 <button 
                     className='hidden group-hover:flex gap-2 items-center rounded-md bg-yellow-500 text-white px-4 py-2 cursor-pointer hover:bg-green-500 transition-colors'
                     onClick={addProductToCart}

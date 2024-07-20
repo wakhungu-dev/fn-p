@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
 import { useAppSelector } from '@/redux/hooks';
-// import { ProductList } from '../ProductList';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 interface PropsType {
     setShowCart: Dispatch<SetStateAction<boolean>>;
@@ -11,7 +11,7 @@ interface PropsType {
 const Navbar = ({ setShowCart }: PropsType) => {
     const [searchQuery, setSearchQuery] = useState('');
     const cartCount = useAppSelector((state) => state.cart.items.length);
-    // const products = useAppSelector((state) => state.products); // Accessing products state correctly
+    const { data: session, status } = useSession();
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
@@ -52,13 +52,25 @@ const Navbar = ({ setShowCart }: PropsType) => {
                     <div className='flex gap-4 md:gap-8 items-center'>
                         {/* User account */}
                         <div className='md:flex hidden gap-3'>
-                            <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center'>
-                                <AiOutlineUser />
-                            </div>
-                            <div>
-                                <p className='text-gray-500'>Hello, Sign In</p>
-                                <p className='font-medium'>Your Account</p>
-                            </div>
+                            {status === 'loading' ? (
+                                <p>Loading...</p>
+                            ) : session ? (
+                                <>
+                                    <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center'>
+                                        <AiOutlineUser />
+                                    </div>
+                                    <div>
+                                        <p className='text-gray-500'>Hello, {session.user?.name}</p>
+                                        <button className='font-medium' onClick={() => signOut()}>
+                                            Sign Out
+                                        </button>
+                                    </div>
+                                </>
+                            ) : (
+                                <button className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center' onClick={() => signIn()}>
+                                    <AiOutlineUser />
+                                </button>
+                            )}
                         </div>
                         {/* Cart */}
                         <div
@@ -76,7 +88,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                 <div className='border-b border-gray-200 pt-4' />
             </div>
             {/* Product list */}
-            {/* <ProductList products={products} searchQuery={searchQuery} /> Pass products to ProductList */}
+            {/* <ProductList products={products} searchQuery={searchQuery} /> */}
         </div>
     );
 };
