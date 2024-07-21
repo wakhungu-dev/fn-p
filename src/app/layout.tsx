@@ -22,14 +22,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ProviderWrapper>
-          <div>
+          {/* <div> */}
           <NavbarCartWrapper />
-          <main>
+          {/* <main> */}
           {children}
 
-          </main>
-        <Footer />
-        </div>
+          {/* </main> */}
+        {/* <Footer /> */}
+        {/* </div> */}
 
 
         </ProviderWrapper>
