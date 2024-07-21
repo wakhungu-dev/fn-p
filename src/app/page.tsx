@@ -5,11 +5,13 @@ import { Suspense } from "react";
 
 const Home = async () => {
   return (
-    <main>
+    <main className="flex flex-col min-h-screen">
       <NavbarCartWrapper />
-      <Suspense fallback={<div>Loading...</div>}>
-        <TrendingProduct />
-      </Suspense>
+      <div className="flex-grow">
+        <Suspense fallback={<div>Loading...</div>}>
+          <TrendingProduct />
+        </Suspense>
+      </div>
       <Footer />
     </main>
   );
