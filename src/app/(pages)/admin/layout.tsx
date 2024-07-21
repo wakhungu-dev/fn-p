@@ -26,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                {/* <Navbar /> */}
                <div className='bg-gray-200 p-4 h-[calc(100vh-64px)]'>{children}</div>
             </div>
+            
             {isLoading && <Loader />}
         </div>
     )
