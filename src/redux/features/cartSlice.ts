@@ -9,6 +9,15 @@ const initialState: CartState = {
     items: [],
 };
 
+/**
+ * Represents a Redux slice for managing the cart state.
+ *
+ * @remarks
+ * This slice contains reducers for adding items to the cart, removing items from the cart,
+ * incrementing the quantity of an item in the cart, and decrementing the quantity of an item in the cart.
+ *
+ * @public
+ */
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
