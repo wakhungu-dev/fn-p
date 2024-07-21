@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(){
     try {
-        const users = userController.getUsers();
+        
+
+        const users = await userController.getUsers();
         return NextResponse.json(users);
 
         

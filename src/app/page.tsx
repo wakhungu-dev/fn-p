@@ -1,19 +1,18 @@
-
-import TrendingProduct from '@/components/front-end/TrendingProduct'
-import { NavbarCartWrapper } from '@/components/front-end/NavbarCartWrapper'
-import Footer from '@/components/front-end/Footer'
-
+import TrendingProduct from "@/components/front-end/TrendingProduct";
+import { NavbarCartWrapper } from "@/components/front-end/NavbarCartWrapper";
+import Footer from "@/components/front-end/Footer";
+import { Suspense } from "react";
 
 const Home = async () => {
-
- return (
-
+  return (
     <main>
       <NavbarCartWrapper />
-      <TrendingProduct  />
+      <Suspense fallback={<div>Loading...</div>}>
+        <TrendingProduct />
+      </Suspense>
       <Footer />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

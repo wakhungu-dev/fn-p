@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions, CallbacksOptions, Session, User as NextAuthUser } from 'next-auth';
+import NextAuth, { NextAuthOptions, CallbacksOptions, Session, User as NextAuthUser, getServerSession } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { mongoDbConnection } from '@/libs/mongoDb';
 import User from '@/libs/models/user';
@@ -22,8 +22,11 @@ const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     signIn: async ({ user, account, profile }) => {
-      await mongoDbConnection();
-      const existingUser = await User.findOne({ email: user.email });
+      // await mongoDbConnection();
+       if(!user){
+        return false;
+       }  
+      const existingUser = await userController.getUserByEmail( user.email as string);
 
       if (!existingUser) {
       await userController.createUser({
@@ -40,10 +43,12 @@ const authOptions: NextAuthOptions = {
       return true;
     },
     session: async ({ session, token }) => {
-      await mongoDbConnection();
+      // await mongoDbConnection();
+      return session;
       const dbUser = await userController.getUserByEmail(token.email as string);
 
       if (dbUser) {
+        // session?.user
         (session as SessionWithUser).user.id = dbUser._id;
       }
 

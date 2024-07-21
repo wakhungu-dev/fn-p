@@ -1,5 +1,5 @@
 export const revalidate = 60;
-import React, { useEffect,FC, useState } from 'react';
+import React, { FC } from 'react';
 import ProductCard from './ProductCard';
 import { Iproduct } from '@/types/core';
 import { mongoDbConnection } from '@/libs/mongoDb';
