@@ -1,3 +1,4 @@
 
 export { default } from "next-auth/middleware"
-export const config ={matcher: ["/admin"]}
+// Add a comment to describe the purpose of the config object
+export const config = { matcher: ["/admin"] }
