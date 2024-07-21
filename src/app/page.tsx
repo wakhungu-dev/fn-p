@@ -12,7 +12,7 @@ const Home = async () => {
           <TrendingProduct />
         </Suspense>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 };
