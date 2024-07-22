@@ -3,6 +3,9 @@ import loadingReducer from './features/loadingSlice';
 import productReducer from './features/productSlice';  // Ensure the default export
 import cartSlice from './features/cartSlice';
 
+/**
+ * The Redux store configuration.
+ */
 export const store = configureStore({
     reducer: {
         cart: cartSlice,
@@ -12,12 +15,14 @@ export const store = configureStore({
     devTools: process.env.NODE_ENV !== 'production',
 });
 
-
 // src/redux/store.ts
 
-
-
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
+/**
+ * The root state type inferred from the store itself.
+ */
 export type RootState = ReturnType<typeof store.getState>;
+
+/**
+ * The type of the dispatch function inferred from the store itself.
+ */
 export type AppDispatch = typeof store.dispatch;

@@ -22,16 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ProviderWrapper>
-          {/* <div> */}
           <NavbarCartWrapper />
-          {/* <main> */}
-          {children}
-
-          {/* </main> */}
-        {/* <Footer /> */}
-        {/* </div> */}
-
-
+           {children}
         </ProviderWrapper>
         {/* <Footer /> */}
         <Toaster position="bottom-center" reverseOrder={false} />
