@@ -57,7 +57,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                                 <p>Loading...</p>
                             ) : session ? (
                                 <>
-                                    <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center'>
+                                    <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center overflow-hidden'>
                                        { session?.user?.image? <Image src={session.user.image} alt={session.user.name as string} width={50} height={50}  /> :<AiOutlineUser />}
                                     </div>
                                     <div>
