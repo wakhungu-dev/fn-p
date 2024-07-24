@@ -2,6 +2,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import { Iproduct } from '@/types/core';
+import { AppDispatch, RootState } from '@/redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProducts } from '@/redux/features/productsSlice';
 
 const getProducts = async (): Promise<Iproduct[]> => {
   let res = await fetch ('/api/products');
@@ -9,15 +12,19 @@ const getProducts = async (): Promise<Iproduct[]> => {
 }
 
 const TrendingProduct: FC = () => {
-  const [products, setProducts] = useState<Iproduct[] | null>(null);
+  // const [productz, setProducts] = useState<Iproduct[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const dispatch: AppDispatch = useDispatch();
+    const {  filteredProducts } = useSelector((state: RootState) => state.products);
+    
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const data = await getProducts();
-        setProducts(Array.isArray(data) ? data : []);
+        
+        dispatch(setProducts(Array.isArray(data) ? data : []));
       } catch (err) {
         setError('Failed to fetch products');
       } finally {
@@ -36,8 +43,8 @@ const TrendingProduct: FC = () => {
     return <div>{error}</div>; // Display error message
   }
 
-  if (!products || products.length === 0) {
-    return <div>No products found</div>; // Placeholder for no products found
+  if (!filteredProducts || filteredProducts.length === 0) {
+    return <div>No filteredProducts found</div>; // Placeholder for no products found
   }
 
   return (
@@ -52,7 +59,7 @@ const TrendingProduct: FC = () => {
       </div>
 
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8'>
-        {products.map((item: Iproduct) => (
+        {filteredProducts.map((item: Iproduct) => (
           <ProductCard
             key={item._id}
             product={item} // Ensure key is unique

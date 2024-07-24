@@ -1,27 +1,37 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
-import { useAppSelector } from '@/redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { AppDispatch } from '@/redux/store';
+import { resetFilters, setCategory, setSearchQuery } from '@/redux/features/productsSlice';
+// import { setProducts, setSearchQuery, setCategory, resetFilters } from '@/slices/productsSlice';
 
 interface PropsType {
     setShowCart: Dispatch<SetStateAction<boolean>>;
 }
 
 const Navbar = ({ setShowCart }: PropsType) => {
-    const [searchQuery, setSearchQuery] = useState('');
+    // const [searchQuery, setSearchQuery] = useState('');
     const cartCount = useAppSelector((state) => state.cart.items.length);
     const { data: session, status } = useSession();
+    const dispatch: AppDispatch = useAppDispatch();
+    // const { products, filteredProducts, searchQuery, selectedCategory } = useAppSelector((state) => state.products);
 
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
+
+
+   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        dispatch(setSearchQuery(e.target.value));
     };
 
-    const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log('Search query:', searchQuery);
-    };
+    // const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    //     dispatch(setCategory(e.target.value));
+    // };
+
+    // const handleResetFilters = () => {
+    //     dispatch(resetFilters());
+    // };
 
     return (
         <div className='pt-4 bg-white top-0 sticky'>
@@ -33,21 +43,15 @@ const Navbar = ({ setShowCart }: PropsType) => {
                     {/* Search form */}
                     <form
                         className='lg:flex hidden w-full max-w-[500px]'
-                        onSubmit={handleSearchSubmit}
+                        // onSubmit={handleSearch}
                     >
                         <input
                             type='text'
                             placeholder='Search for products...'
-                            value={searchQuery}
-                            onChange={handleSearchChange}
+                            onChange={handleSearch}
                             className='w-full border-2 border-accent px-6 py-2'
                         />
-                        <button
-                            type='submit'
-                            className='bg-accent text-white text-[26px] grid place-items-center px-4'
-                        >
-                            <BsSearch />
-                        </button>
+                        
                     </form>
                     {/* User account and cart */}
                     <div className='flex gap-4 md:gap-8 items-center'>
