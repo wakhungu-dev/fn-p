@@ -3,6 +3,7 @@ import { BsSearch } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
 import { useAppSelector } from '@/redux/hooks';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 interface PropsType {
     setShowCart: Dispatch<SetStateAction<boolean>>;
@@ -57,7 +58,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                             ) : session ? (
                                 <>
                                     <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center'>
-                                        <AiOutlineUser />
+                                       { session?.user?.image? <Image src={session.user.image} alt={session.user.name as string} width={50} height={50}  /> :<AiOutlineUser />}
                                     </div>
                                     <div>
                                         <p className='text-gray-500'>Hello, {session.user?.name}</p>

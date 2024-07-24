@@ -9,7 +9,7 @@ const Home = async () => {
       <NavbarCartWrapper />
       <div className="flex-grow">
         <Suspense fallback={<div>Loading...</div>}>
-          <TrendingProduct />
+          {/* <TrendingProduct /> */}
         </Suspense>
       </div>
       {/* <Footer /> */}

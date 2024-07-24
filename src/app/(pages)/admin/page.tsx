@@ -6,12 +6,16 @@ import { setLoading } from '@/redux/features/loadingSlice'
 import { useAppDispatch } from '@/redux/hooks'
 import { Iproduct } from '@/types/core'
 import axios from 'axios'
+import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 
 const Dashboard: React.FC = () => {
   const [products, setProducts] = useState<Iproduct[]>([])
   const [openPopup, setOpenPopup] = useState(false)
   const [updateTable, setUpdateTable] = useState(false)
+  const { data: session } = useSession()
+  console.log({ session })
+  
 
   const dispatch = useAppDispatch()
 
