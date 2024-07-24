@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import loadingReducer from './features/loadingSlice';
 import productReducer from './features/productSlice';  // Ensure the default export
 import cartSlice from './features/cartSlice';
+import productsReducer from './features/productsSlice';
 
 /**
  * The Redux store configuration.
@@ -11,6 +12,7 @@ export const store = configureStore({
         cart: cartSlice,
         loading: loadingReducer,
         product: productReducer,
+        products: productsReducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
 });
