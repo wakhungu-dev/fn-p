@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="bg-[#f8f8f8] py-20" mt-4>
+    <div className="bg-[#f8f8f8] py-20 mt-4">
       <div className="container grid md:grid-cols-2 py-8">
         <div className="flex items-center">
           <div className="max-w-[450px] space-y-4">
@@ -17,14 +17,13 @@ const Hero = () => {
             </h1>
             {/* Offer */}
             <h3 className="text-2xl font-['oregano',cursive]">
-              Excluisive offer <span className="text-red-500">-10%</span> off
-              this week
+              Exclusive offer <span className="text-red-500">-10%</span> off this week
             </h3>
 
             {/* Shop now link */}
             <Link
-              className="inline-block bg-white  px-6 py-3 hover:bg-accent hover:text-white"
-              href="#"
+              className="inline-block bg-white px-6 py-3 hover:bg-accent hover:text-white"
+              href="/productz"
             >
               Shop now
             </Link>
@@ -44,4 +43,5 @@ const Hero = () => {
     </div>
   );
 };
+
 export default Hero;
