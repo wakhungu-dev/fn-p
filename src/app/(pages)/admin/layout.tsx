@@ -14,11 +14,12 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const isLoading = useAppSelector(store => store.loading)
     const { data: session } = useSession()
-
+    
     if (!session?.user) {
         return <Login />
     }
-
+    
+    console.log({session})
     return (
         <div className='flex'>
            <Sidebar  /> 
