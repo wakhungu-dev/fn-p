@@ -6,6 +6,7 @@ export async function PUT(req: Request, query:{params: {id: string}}){
     try {
         const updatedUser = await userController.updateUser(query.params.id, body);
         return NextResponse.json(updatedUser);
+        console.log(updatedUser);
     } catch (error: any) {
         console.log(error);
         return NextResponse.json({ message: "Something went wrong "+ error.message }, { status: 500 });
