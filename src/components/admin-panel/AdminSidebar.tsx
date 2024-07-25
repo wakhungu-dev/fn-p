@@ -24,7 +24,7 @@ const Sidebar = () => {
     {
       title: 'Accounts',
       icon: <MdManageAccounts />,
-      href: '#',
+      href: '/admin/accounts',
     },
     {
       title: 'Transactions',

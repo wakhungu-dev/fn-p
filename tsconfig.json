@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/components/AccountsForm"  ],
   "exclude": [
     "node_modules"
   ]

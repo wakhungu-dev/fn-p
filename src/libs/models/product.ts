@@ -1,4 +1,4 @@
-import { Iproduct, Rating, Review } from "@/types/core";
+import { Category, Iproduct, Rating, Review } from "@/types/core";
 import { Schema, model, models } from "mongoose";
 // Define the Review schema
 const reviewSchema: Schema<Review> = new Schema({
@@ -33,11 +33,14 @@ const productSchema = new Schema<Iproduct>(
     },
     category: {
       type: String,
+      enum: Category,
+      default: Category.ALL,
+
       required: true,
     },
     price: {
       type: { amount: Number, currency: String },
-      required: true, 
+      required: true,
     },
 
     quantity: {
