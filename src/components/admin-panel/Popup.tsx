@@ -1,5 +1,6 @@
 import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { Category } from "@/types/core";
 import { makeToast } from "@/utils/helper";
 import axios from "axios";
 import React, { Dispatch, FormEvent } from "react";
@@ -65,7 +66,7 @@ const Popup = ({ setOpenPopup, setUpdateTable }: propsType) => {
             placeholder="category"
             value={inputData.category}
             onChange={(e) =>
-              setInputData({ ...inputData, category: e.target.value })
+              setInputData({ ...inputData, category: e.target.value as Category})
             }
             required
           />

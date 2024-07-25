@@ -40,13 +40,13 @@ const ProductCard = ({ product }: PropsType): JSX.Element => {
     };
 
     return (
-        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow transform duration-300 hover:shadow-lg hover:scale-105'>
+        <div className='group border border-gray-200 rounded-md shadow-md transition-shadow transform duration-300 hover:shadow-lg hover:scale-105 flex flex-col'>
             {/* Product image */}
-            <div className='text-center border-b border-gray-200'>
-                <Image src={imgSrc} alt={name} width={100} height={100} />
+            <div className='flex-grow text-center border-b border-gray-200'>
+                <Image src={imgSrc} alt={name} width={50} height={50} className="object-cover h-full w-full" />
             </div>
             {/* Product details */}
-            <div className='px-8 py-4'>
+            <div className='px-4 py-4 flex flex-col'>
                 {/* Product category */}
                 <p className='text-gray-500 text-[14px] font-medium'>{category}</p>
                 {/* Product name */}
@@ -70,7 +70,7 @@ const ProductCard = ({ product }: PropsType): JSX.Element => {
                 </div>
                 {/* Add to cart button */}
                 <button 
-                    className='hidden group-hover:flex gap-2 items-center rounded-md bg-yellow-500 text-white px-4 py-2 cursor-pointer hover:bg-green-500 transition-colors'
+                    className='mt-auto flex gap-2 items-center rounded-md bg-yellow-500 text-white px-4 py-2 cursor-pointer hover:bg-green-500 transition-colors'
                     onClick={addProductToCart}
                     aria-label={`Add ${name} to cart`}
                 >

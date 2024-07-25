@@ -2,25 +2,24 @@
 
 import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch } from "@/redux/hooks";
-import { Iproduct } from "@/types/core";
+import { Category, Iproduct } from "@/types/core";
 import { makeToast } from "@/utils/helper";
 import { UploadButton } from "@/utils/uploadthing";
 import axios from "axios";
 import Image from "next/image";
 import React, { FormEvent, useState } from "react";
 
-interface Ipayload extends Iproduct {
-  
-}
+interface Ipayload extends Iproduct {}
+
 const defaultPayload: Ipayload = {
   imgSrc: "",
   fileKey: "",
   name: "",
-  category: "",
+  category: Category.ALL,
   price: { amount: 0, currency: "ksh" },
   quantity: 1,
-  reviews: [],  
-  }
+  reviews: [],
+};
 
 const ProductForm = () => {
   const [payload, setPayload] = useState<Ipayload>(defaultPayload);
@@ -83,8 +82,7 @@ const ProductForm = () => {
       <div>
         <label className="block ml-1">Product Name</label>
         <input
-          className="bg-gray-300 w-full
-                    px-4 py-2 border outline-pink rounded-md"
+          className="bg-gray-300 w-full px-4 py-2 border outline-pink rounded-md"
           type="text"
           value={payload.name}
           onChange={(e) => setPayload({ ...payload, name: e.target.value })}
@@ -93,23 +91,33 @@ const ProductForm = () => {
       </div>
       <div>
         <label className="block ml-1">Product Category</label>
-        <input
-          className="bg-gray-300 w-full
-                    px-4 py-2 border outline-pink rounded-md"
-          type="text"
+        <select
+          className="bg-gray-300 w-full px-4 py-2 border outline-pink rounded-md"
           value={payload.category}
-          onChange={(e) => setPayload({ ...payload, category: e.target.value })}
+          onChange={(e) =>
+            setPayload({ ...payload, category: e.target.value as Category })
+          }
           required
-        />
+        >
+          {Object.values(Category).map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <label className="block ml-1">Product Price</label>
         <input
-          className="bg-gray-300 w-full
-                    px-4 py-2 border outline-pink rounded-md"
-          type="text"
+          className="bg-gray-300 w-full px-4 py-2 border outline-pink rounded-md"
+          type="number"
           value={payload.price.amount}
-          onChange={(e) => setPayload({ ...payload, price:{...payload.price,amount:+e.target.value} })}
+          onChange={(e) =>
+            setPayload({
+              ...payload,
+              price: { ...payload.price, amount: +e.target.value },
+            })
+          }
           required
         />
       </div>

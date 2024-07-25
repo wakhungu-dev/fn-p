@@ -1,4 +1,4 @@
-import { Iproduct } from "@/types/core";
+import { Category, Iproduct } from "@/types/core";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 const initialState: Iproduct = {
@@ -7,7 +7,7 @@ const initialState: Iproduct = {
     fileKey:  '',
     name:  '',
     price: {amount: 0, currency: 'ksh'},
-    category:  '',
+    category: Category.ALL,
     quantity:  1,
     reviews: []
 }
