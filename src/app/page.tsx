@@ -6,12 +6,15 @@ import { Suspense } from "react";
 import CategorySection from "@/components/front-end/CategorySection";
 import { Category } from "@/types/core";
 import { ALL } from "dns";
+import Hero from "@/components/front-end/Hero";
+import Feature from "@/components/front-end/Feature";
 
 const Home = async () => {
   return (
     <main className="flex flex-col min-h-screen">
-      <NavbarCartWrapper />
       <div className="flex-grow">
+        <Hero />
+        <Feature />
         <Suspense fallback={<div>Loading...</div>}>
           <TrendingProduct />
           {/* <CategorySection category={Category.ELECTRONICS as Category}/>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { ProviderWrapper } from "./ProviderWrapper";
 import Footer from "@/components/front-end/Footer";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ProviderWrapper>
+          <Header />
            {children}
+          <Footer />
         </ProviderWrapper>
         <Toaster position="bottom-center" reverseOrder={false} />
-        <Footer />
           </body>
     </html>
   );

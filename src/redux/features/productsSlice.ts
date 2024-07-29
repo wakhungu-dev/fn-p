@@ -6,13 +6,15 @@ interface ProductState {
     filteredProducts: Iproduct[];
     searchQuery: string;
     selectedCategory: string;
+    selectedProduct: Iproduct | null; // Add a field to store the selected product
 }
 
 const initialState: ProductState = {
     products: [], // Assuming this will be populated with a list of products
     filteredProducts: [],
     searchQuery: '',
-    selectedCategory: ''
+    selectedCategory: '',
+    selectedProduct: null // Initialize with null
 };
 
 export const productsSlice = createSlice({
@@ -48,9 +50,12 @@ export const productsSlice = createSlice({
             state.filteredProducts = state.products;
             state.searchQuery = '';
             state.selectedCategory = '';
+        },
+        getProductById: (state, action: PayloadAction<string>) => {
+            state.selectedProduct = state.products.find(product => product._id === action.payload) || null;
         }
     }
 });
 
-export const { setProducts, setProduct, setSearchQuery, setCategory, resetFilters } = productsSlice.actions;
+export const { setProducts, setProduct, setSearchQuery, setCategory, resetFilters, getProductById } = productsSlice.actions;
 export default productsSlice.reducer;

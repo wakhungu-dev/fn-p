@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { Iproduct, Category, Review } from '@/types/core';
+import Image from 'next/image';
 
 interface CategorySectionProps {
   category: Category;
@@ -47,7 +48,7 @@ return (
                 .filter((product) => product.category === category)
                 .map((product) => (
                     <div key={product._id} className="bg-white rounded-lg shadow-md p-4">
-                        <img
+                        <Image
                             src={product.imgSrc}
                             alt={product.name}
                             className="w-full h-48 object-cover rounded-md mb-4"
