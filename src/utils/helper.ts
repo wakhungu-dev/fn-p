@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-export const makeToast = (text: string) => {
+export const makeToast = (text: string, p0: string) => {
     toast.success(text,{
         style: {
             borderRadius: '4px',
