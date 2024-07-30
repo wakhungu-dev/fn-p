@@ -8,6 +8,8 @@ export interface Iproduct {
     category: Category
     quantity: number
     reviews: Review[]
+    description?: string
+    size?: string[]
 }
 export enum Category {
     ELECTRONICS = 'Electronics',

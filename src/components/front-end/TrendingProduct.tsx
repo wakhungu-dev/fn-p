@@ -8,6 +8,7 @@ import { setProducts } from '@/redux/features/productsSlice';
 import CategorySection from './CategorySection';
 import { addToCart } from '@/redux/features/cartSlice'; // Import your cart slice action
 import { makeToast } from '@/utils/helper';
+import Spinner from '../admin-panel/Loader';
 
 const getProducts = async (): Promise<Iproduct[]> => {
   let res = await fetch('/api/products');
@@ -40,7 +41,7 @@ const TrendingProduct: FC = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>; // Consider a spinner or loader here
+    return <Spinner />; // Consider a spinner or loader here
   }
 
   if (error) {
@@ -52,7 +53,7 @@ const TrendingProduct: FC = () => {
   }
 
   return (
-    <div className='container mt-32'>
+    <div className='container mt-32 pt-8 pb-16'>
       <div className='sm:flex justify-between items-center'>
         <h2 className='font-bold text-lg'>Products</h2>
         <div className='text-gray-500 flex gap-4 text-xl mt-4 sm:mt-0'>
