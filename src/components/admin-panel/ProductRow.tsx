@@ -46,11 +46,11 @@ const ProductRow: React.FC<PropsType> = ({
       });
       console.log("Product delete response:", res2.data);
 
-      makeToast("Product deleted successfully");
+      makeToast("success","Product deleted successfully");
       setUpdateTable((prevState) => !prevState);
     } catch (error) {
       console.error("Error deleting product:", error);
-      makeToast("Failed to delete product");
+      makeToast("failed","Failed to delete product");
     } finally {
       dispatch(setLoading(false));
     }

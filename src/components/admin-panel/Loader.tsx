@@ -1,11 +1,7 @@
-import React from 'react'
+import { FadeLoader } from "react-spinners";
 
-const Loader = () => {
-  return (
-    <div className='fixed w-full h-screen top-0 left-0 bg-[#0000006d] grid place-items-center'>
-        <span className='loader' ></span>
-        </div>
-  )
+export default function Spinner() {
+  return <>
+    <FadeLoader color="#d66b36" />
+  </>
 }
-
-export default Loader

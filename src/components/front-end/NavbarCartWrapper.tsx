@@ -16,8 +16,6 @@ interface PropsType extends React.PropsWithChildren{
         <>
         <Navbar setShowCart={setShowCart} />
         {showCart?  <Cart setShowCart={setShowCart}  /> : null}
-        <Hero />
-        <Feature/>
         </>
     )
 

@@ -37,18 +37,18 @@ const ProductForm = () => {
       !payload.imgSrc ||
       !payload.fileKey
     ) {
-      makeToast("Please fill all the fields and upload an image");
+      makeToast("success","Please fill all the fields and upload an image");
       return;
     }
 
     dispatch(setLoading(true));
     try {
       const response = await axios.post("/api/products", payload);
-      makeToast("Product added successfully");
+      makeToast("success","Product added successfully");
       setPayload(defaultPayload);
     } catch (err) {
       console.error("Error adding product:", err);
-      makeToast("Error adding product");
+      makeToast("failed","Error adding product");
     } finally {
       dispatch(setLoading(false));
     }
