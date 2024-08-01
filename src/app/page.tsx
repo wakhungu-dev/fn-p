@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import TrendingProduct from "@/components/front-end/TrendingProduct";
 import { NavbarCartWrapper } from "@/components/front-end/NavbarCartWrapper";
 import Footer from "@/components/front-end/Footer";

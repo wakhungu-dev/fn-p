@@ -3,6 +3,7 @@ import { NavbarCartWrapper } from './front-end/NavbarCartWrapper'
 
 const Header = () => {
   return (
+    
     <NavbarCartWrapper  />
   )
 }

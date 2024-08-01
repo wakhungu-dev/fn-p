@@ -30,7 +30,7 @@ const Hero = () => {
           </div>
         </div>
         {/* Hero image */}
-        <div>
+        {/* <div>
           <Image
             width={50}
             height={50}
@@ -38,7 +38,7 @@ const Hero = () => {
             src="/hero.jpeg"
             alt="hero"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

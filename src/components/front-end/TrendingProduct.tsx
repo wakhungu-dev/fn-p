@@ -9,6 +9,7 @@ import CategorySection from './CategorySection';
 import { addToCart } from '@/redux/features/cartSlice'; // Import your cart slice action
 import { makeToast } from '@/utils/helper';
 import Spinner from '../admin-panel/Loader';
+import Pagination from '../Pagination';
 
 const getProducts = async (): Promise<Iproduct[]> => {
   let res = await fetch('/api/products');
@@ -96,6 +97,10 @@ const TrendingProduct: FC = () => {
         {filteredProducts.map((item: Iproduct) => (
           <ProductCard key={item._id} product={item} />
         ))}
+      </div>
+
+      <div className='mt-8'>
+        <Pagination totalPages={(filteredProducts.length / 5) || 1} currentPage={1} />
       </div>
     </div>
   );

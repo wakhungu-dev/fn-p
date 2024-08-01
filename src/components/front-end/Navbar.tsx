@@ -6,6 +6,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { AppDispatch } from '@/redux/store';
 import { resetFilters, setCategory, setSearchQuery } from '@/redux/features/productsSlice';
+import Spinner from '../admin-panel/Loader';
 // import { setProducts, setSearchQuery, setCategory, resetFilters } from '@/slices/productsSlice';
 
 interface PropsType {
@@ -58,7 +59,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                         {/* User account */}
                         <div className='md:flex hidden gap-3'>
                             {status === 'loading' ? (
-                                <p>Loading...</p>
+                                <Spinner />
                             ) : session ? (
                                 <>
                                     <div className='rounded-full border-2 border-gray-300 text-gray-500 text-[32px] w-[50px] h-[50px] grid place-items-center overflow-hidden'>

@@ -25,7 +25,7 @@ const page = async ({ params: { slug } }: any) => {
     return { notFound: true };
   }
 
-  const { name, category, price, imgSrc, description, size } = product;
+  const { name, category, price, imgSrc, description, sizes } = product;
 
   return (  
   <div  
@@ -80,7 +80,7 @@ const page = async ({ params: { slug } }: any) => {
       </div>  
 
       <div className="mt-4">  
-        <ProductDetails sizes={size || []} /> 
+        <ProductDetails sizes={sizes || []} /> 
       </div>  
       <div className="mt-6">  
         <AddToCartButton idStr={JSON.stringify({ id: slug })} />  
@@ -89,6 +89,7 @@ const page = async ({ params: { slug } }: any) => {
       <div className="mt-4 border-spacing-7">
         <SocialShare shareUrl={`https://example.com/${slug}`} name={name} />
         </div> 
+        
     </div>  
   </div>  
 );
