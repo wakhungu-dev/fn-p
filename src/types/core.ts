@@ -9,7 +9,7 @@ export interface Iproduct {
     quantity: number
     reviews: Review[]
     description?: string
-    size?: string[]
+    sizes?: string[]
 }
 export enum Category {
     ELECTRONICS = 'Electronics',

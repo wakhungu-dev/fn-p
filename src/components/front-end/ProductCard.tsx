@@ -16,6 +16,7 @@ import { Iproduct } from "@/types/core";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "../AddToCartButton";
+import Pagination from "../Pagination";
 
 interface PropsType {
   product: Iproduct;
