@@ -85,7 +85,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
                         >
                             <AiOutlineShoppingCart />
                             {/* Cart count */}
-                            <div className='absolute top-[-15px] right-[-10px] bg-red-600 text-white w-[16px] h-[16px] text-lg rounded-full flex items-center justify-center'>
+                            <div className='absolute top-[-15px] right-[-10px] bg-red-600 text-white w-[18px] h-[18px] text-lg rounded-full flex items-center  justify-center'>
                                 {cartCount}
                             </div>
                         </div>
