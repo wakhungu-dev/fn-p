@@ -3,6 +3,7 @@ import Link from 'next/link';
 interface PaginationProps {  
   totalPages: number;  
   currentPage: number;  
+  onPageChange ?: (pageNumber: number) => void;
 }  
 
 const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage }) => {  

@@ -38,7 +38,7 @@ const ProductCard = ({ product }: PropsType): JSX.Element => {
   };
 
   return (
-    <div className="group border border-gray-200 rounded-md shadow-md transition-shadow transform duration-300 hover:shadow-lg hover:scale-105 flex flex-col">
+    <div className="group border border-gray-200 rounded-md shadow-md transition-shadow transform duration-300 hover:shadow-lg hover:scale-105 flex flex-col ">
       {/* Product image */}
       <div className="flex-grow text-center border-b border-gray-200">
         <Link href={`/${_id as string}`}>
