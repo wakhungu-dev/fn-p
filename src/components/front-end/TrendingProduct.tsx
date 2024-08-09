@@ -75,7 +75,7 @@ const TrendingProduct: FC = () => {
               />
             )}
           </div>
-          <div className='cursor-pointer' onClick={() => setSelectedCategory(Category.ELECTRONICS)}>
+          <div className='cursor-pointer sm:grid-flow-col md:grid-flow-row ' onClick={() => setSelectedCategory(Category.ELECTRONICS)}>
             Electronics
           </div>
           <div className='cursor-pointer' onClick={() => setSelectedCategory(Category.JEWELERY)}>
