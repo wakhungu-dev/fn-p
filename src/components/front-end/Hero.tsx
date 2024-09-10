@@ -23,7 +23,7 @@ const Hero = () => {
             {/* Shop now link */}
             <Link
               className="inline-block bg-white px-6 py-3 hover:bg-accent hover:text-white"
-              href="/productz"
+              href="/products"
             >
               Shop now
             </Link>
