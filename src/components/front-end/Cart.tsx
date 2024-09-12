@@ -39,9 +39,7 @@ const Cart: React.FC<PropsType> = ({ setShowCart }) => {
                     <p>Total:</p>
                     <p>Ksh{getTotal()}.00</p>
                 </div>
-                <button className='bg-black text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
-                    View cart
-                </button>
+                
                 <button className='bg-black text-white text-center w-full rounded-3xl py-2 hover:bg-accent'>
                     Checkout
                 </button>
