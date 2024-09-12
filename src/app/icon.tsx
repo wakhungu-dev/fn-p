@@ -24,7 +24,6 @@ export default function Icon() {
           color: '#f5b642', // Gold color for class
           fontFamily: 'Georgia, serif', // Classy font
           borderRadius: '50%',
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)', // Subtle shadow for depth
         }}
       >
         ly
