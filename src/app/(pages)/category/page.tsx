@@ -1,4 +1,5 @@
 // pages/category/index.tsx
+"use client";
 import React, { useState } from 'react';
 import { Category } from '@/types/core';
 import CategorySection from '@/components/front-end/CategorySection';

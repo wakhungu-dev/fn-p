@@ -1,12 +1,10 @@
 "use client";
+import type { ProductDetails } from '@/types/core';
 import React, { useState } from 'react'; 
 
-interface ProductDetailsProps {
-    sizes: string[];
-    }
 
-const ProductDetails: React.FC<ProductDetailsProps> = () => {  
-  const sizes = ["Small", "Medium", "Large", "XL", "2XL"];  
+
+const ProductDetails: React.FC<{ sizes: string[] }> = ({ sizes }) => {  
   const [selectedSize, setSelectedSize] = useState<string>('');  
 
   return (  
@@ -26,7 +24,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
           </li>  
         ))}  
       </ul>  
-      <p>You selected: {selectedSize}</p>   
+      <p>{selectedSize ? `You selected: ${selectedSize}` : 'Please select a size.'}</p>   
     </div>  
   );  
 }  

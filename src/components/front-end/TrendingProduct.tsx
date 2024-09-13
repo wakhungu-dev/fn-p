@@ -57,7 +57,7 @@ const TrendingProduct: FC = () => {
     <div className='container mt-32 pt-8 pb-16'>
       <div className='sm:flex justify-between items-center'>
         <h2 className='font-bold text-lg'>Products</h2>
-        <div className='text-gray-500 flex gap-4 text-xl mt-4 sm:mt-0'>
+        {/* <div className='text-gray-500 flex gap-4 text-xl mt-4 sm:mt-0'>
           <div className='cursor-pointer'>
             <h2 className='font-bold text-lg'>
               {selectedCategory && (
@@ -90,7 +90,7 @@ const TrendingProduct: FC = () => {
           <div className='cursor-pointer' onClick={() => setSelectedCategory(Category.ALL)}>
             All
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8'>
