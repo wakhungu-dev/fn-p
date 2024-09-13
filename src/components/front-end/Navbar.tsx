@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { AppDispatch } from '@/redux/store';
 import { resetFilters, setCategory, setSearchQuery } from '@/redux/features/productsSlice';
 import Spinner from '../admin-panel/Loader';
+import Logo from '../Logo';
 
 interface PropsType {
     setShowCart: Dispatch<SetStateAction<boolean>>;
@@ -37,7 +38,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
             <div className='container'>
                 <div className='flex justify-between items-center'>
                     <div className='text-4xl font-bold'>
-                        Lynrose
+                        <Logo />
                     </div>
                     {/* Search form */}
                     <form
