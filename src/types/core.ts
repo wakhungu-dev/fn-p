@@ -42,3 +42,8 @@ export interface IUser extends NextauthUser {
   role: string;
   _id?: string;
 }
+export interface ProductDetails {
+    product: Iproduct
+    quantity: number
+    sizes?: string
+}

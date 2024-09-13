@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import { BsSearch } from 'react-icons/bs';
 import { AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { signIn, signOut, useSession } from 'next-auth/react';
@@ -7,7 +6,6 @@ import Image from 'next/image';
 import { AppDispatch } from '@/redux/store';
 import { resetFilters, setCategory, setSearchQuery } from '@/redux/features/productsSlice';
 import Spinner from '../admin-panel/Loader';
-// import { setProducts, setSearchQuery, setCategory, resetFilters } from '@/slices/productsSlice';
 
 interface PropsType {
     setShowCart: Dispatch<SetStateAction<boolean>>;
