@@ -1,5 +1,5 @@
 import { userController } from "@/controllers/UserController";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(){
     try {
@@ -16,3 +16,17 @@ export async function GET(){
     }
 }
 
+export async function POST(req: NextRequest){
+    try {
+        
+const body = await req.json();
+const user = await userController.createUser(body);
+        return NextResponse.json(user);
+
+        
+    } catch (error: any) {
+        console.log(error);
+        return NextResponse.json({ message: "Something went wrong "+ error.message }, { status: 500 });
+        
+    }
+}
