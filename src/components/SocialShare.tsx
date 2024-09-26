@@ -25,7 +25,7 @@ const SocialShare = ({ shareUrl, name }: SocialShareProps) => {
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  
       >  
         <FaXTwitter />{' '}  
-        Share on Twitter  
+        Share on X 
       </a>  
       <a  
         href={`https://www.instagram.com/share?url=${shareUrl}`}  

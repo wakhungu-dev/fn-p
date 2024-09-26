@@ -5,7 +5,7 @@ import toast from 'react-hot-toast'
 
 const PromoteToAdmin = ({ id: strId }: any) => {
     const router = useRouter()
-    const { id } = JSON.parse(strId)
+    const  id  = JSON.parse(strId)
     const handleSubmit = async () => {
         try {
             const res = await fetch(`/api/user/${id}`, {
@@ -20,7 +20,7 @@ const PromoteToAdmin = ({ id: strId }: any) => {
             }
             toast.success('Update successful')
             const data = await res.json()
-            console.log(data)
+            console.log({updatedUser: data} )
         } catch (error: any) {
             console.error('Error promoting user to admin:', error)
             toast.error('Error promoting user to admin')
