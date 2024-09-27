@@ -1,6 +1,6 @@
 {
   "name": "lynrose_ecommerce",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,7 +14,7 @@
     "@uploadthing/react": "^6.7.2",
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
-    "mds-daraja-sdk": "^1.1.1",
+    "mds-daraja-sdk": "^1.1.9",
     "mongoose": "^8.4.5",
     "next": "^14.2.5",
     "next-auth": "^4.24.7",
