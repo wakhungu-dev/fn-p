@@ -3,6 +3,7 @@ import { RxCross1 } from "react-icons/rx";
 import { useAppSelector } from "@/redux/hooks";
 import CartProduct from "@/components/front-end/CartProduct";
 import { Iproduct } from "@/types/core";
+import toast from "react-hot-toast";
 
 interface PropsType {
   setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,10 +33,10 @@ const Cart: React.FC<PropsType> = ({ setShowCart }) => {
             })
         });
         if(!res.ok) throw new Error('Failed to initiate payment');
-        alert('Payment initiated successfully');
+        toast.success('Payment initiated successfully');
         
     } catch (error: any) {
-        alert('Failed to initiate payment');
+        toast.error('Failed to initiate payment');
         
     }
  }
