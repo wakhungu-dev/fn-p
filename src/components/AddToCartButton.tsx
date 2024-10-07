@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 
 interface AddToCartButtonProps {
   idStr: string;
+  className?: string;
 }
 const AddToCartButton = ({ idStr }: AddToCartButtonProps) => {
   const {id} = JSON.parse(idStr)
