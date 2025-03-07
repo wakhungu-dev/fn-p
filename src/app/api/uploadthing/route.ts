@@ -11,9 +11,23 @@ export const { GET, POST } = createRouteHandler({
   // config: { ... },
 });
 
-export async function DELETE(request: Request){
-  const {filekey} = await request.json();
-  const utApi = new UTApi();
-  await utApi.deleteFiles(filekey);
-  return Response.json({message: 'Image deleted successfully'})
+export async function DELETE(request: Request) {
+  try {
+    const { filekey } = await request.json();
+    
+    if (!filekey) {
+      return Response.json({ error: 'File key is required' }, { status: 400 });
+    }
+
+    const utApi = new UTApi();
+    await utApi.deleteFiles(filekey);
+    
+    return Response.json({ message: 'Image deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting file:', error);
+    return Response.json(
+      { error: 'Failed to delete image' }, 
+      { status: 500 }
+    );
+  }
 }
