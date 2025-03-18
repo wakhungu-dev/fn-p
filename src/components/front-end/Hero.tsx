@@ -81,15 +81,15 @@ const Hero = () => {
             <p className="text-gray-500">Loading products...</p>
           ) : (
             products.map((product, index) => (
-              <div key={product.id} className={`w-48 h-48 rounded-lg overflow-hidden shadow-xl transform transition duration-500 ${index % 2 === 0 ? "rotate-2" : "-rotate-2"}`}>
+                <div key={product.id} className={`w-64 h-64 rounded-lg overflow-hidden shadow-xl transform transition duration-500 ${index % 2 === 0 ? "rotate-2" : "-rotate-2"}`}>
                 <Image
                   src={product.image || "/images/placeholder.jpg"}
                   alt={product.name}
-                  width={192}
-                  height={192}
+                  width={256}
+                  height={256}
                   className="object-cover w-full h-full"
                 />
-              </div>
+                </div>
             ))
           )}
         </div>
