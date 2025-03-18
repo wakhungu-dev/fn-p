@@ -8,7 +8,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 interface propsType {
   setOpenPopup: Dispatch<React.SetStateAction<boolean>>;
-  setUpdateTable: Dispatch<React.SetStateAction<boolean>>;
+  setUpdateTable: Dispatch<React.SetStateAction<number>>;
 }
 
 const Popup = ({ setOpenPopup, setUpdateTable }: propsType) => {
@@ -27,7 +27,7 @@ const Popup = ({ setOpenPopup, setUpdateTable }: propsType) => {
       .put(`/api/edit_product/${productData._id}`, inputData)
       .then((res) => {
         makeToast("success","Product updated successfully");
-        setUpdateTable((prevState) => !prevState);
+        setUpdateTable((prevState) => prevState + 1);
       })
       .catch((err) => console.log(err))
       .finally(() => {
