@@ -12,7 +12,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 interface PropsType {
   SrNo: number;
   setOpenPopup: Dispatch<SetStateAction<boolean>>;
-  setUpdateTable: Dispatch<SetStateAction<boolean>>;
+  setUpdateTable: Dispatch<SetStateAction<number>>;
   product: Iproduct;
 }
 
@@ -30,27 +30,37 @@ const ProductRow: React.FC<PropsType> = ({
   };
 
   const onDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this product?")) {
+      return;
+    }
+  
     dispatch(setLoading(true));
-    const payload = {
-      fileKey: product.fileKey,
-    };
-
+  
     try {
-      console.log("Deleting product image with payload:", payload);
-      const res1 = await axios.delete("/api/uploadthing", { data: payload });
-      console.log("Image delete response:", res1.data);
-
-      console.log("Deleting product with ID:", product._id);
-      const res2 = await axios.delete("/api/product/" + product._id, {
-        data: { id: product._id },
+      // Delete image first
+      const imageRes = await axios.delete("/api/uploadthing", {
+        data: { fileKey: product.fileKey }
       });
-      console.log("Product delete response:", res2.data);
-
-      makeToast("success","Product deleted successfully");
-      setUpdateTable((prevState) => !prevState);
+      
+      if (!imageRes.data.success) {
+        throw new Error("Image deletion failed");
+      }
+  
+      // Delete product
+      const productRes = await axios.delete(`/api/product/${product._id}`);
+      
+      if (!productRes.data.success) {
+        throw new Error("Product deletion failed");
+      }
+  
+      makeToast("success", "Product deleted successfully");
+      
+      // Force refresh using counter instead of toggle
+      setUpdateTable((prev) => prev + 1);
     } catch (error) {
-      console.error("Error deleting product:", error);
-      makeToast("failed","Failed to delete product");
+      console.error("Deletion error:", error);
+      const errorMessage = error instanceof Error ? error.message : "Deletion failed";
+      makeToast("failed", errorMessage);
     } finally {
       dispatch(setLoading(false));
     }

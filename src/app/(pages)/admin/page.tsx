@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react'
 const Dashboard: React.FC = () => {
   const [products, setProducts] = useState<Iproduct[]>([])
   const [openPopup, setOpenPopup] = useState(false)
-  const [updateTable, setUpdateTable] = useState(false)
+  const [updateTable, setUpdateTable] = useState(0)
   const { data: session } = useSession()
   console.log({ session })
   
