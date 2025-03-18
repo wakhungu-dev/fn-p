@@ -48,9 +48,12 @@ const Cart: React.FC<PropsType> = ({ setShowCart }) => {
             className="absolute right-0 top-0 m-6 text-[24px] cursor-pointer"
             onClick={() => setShowCart(false)}
           />
-          <h3 className="pt-6 text-lg font-medium text-gray-600 uppercase">
-            Your Cart
-          </h3>
+            <h3 className="pt-6 text-lg font-medium text-gray-600 uppercase tracking-wider border-b-2 border-gray-200 pb-3 mb-4 flex items-center justify-between shadow-sm">
+            <span className="relative">
+              Your Cart
+              <span className="absolute bottom-0 left-0 w-1/2 h-1 bg-accent transform origin-left transition-all duration-300 ease-in-out"></span>
+            </span>
+            </h3>
           <div className="mt-6 space-y-2">
             {products?.map((item: any) => (
               <CartProduct key={item._id} {...item} />
