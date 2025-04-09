@@ -19,4 +19,5 @@ jobs:
 
       - name: Run OSSAR scan
         uses: github/ossar-action@v1
-        if: ${{ github.event_name != 'pull_request' }}name: Security Workflow
+        if: ${{ github.event_name != 'pull_request' }}
+name: Security Workflow
