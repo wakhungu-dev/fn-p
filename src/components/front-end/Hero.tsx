@@ -11,25 +11,8 @@ const Hero = () => {
   }
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [backgroundColor, setBackgroundColor] = useState("from-purple-400 to-pink-500");
 
-  useEffect(() => {
-    const colors = [
-      'from-purple-400 to-pink-500',
-      'from-pink-400 to-red-500',
-      'from-red-500 to-yellow-500',
-      'from-yellow-500 to-green-500',
-      'from-green-500 to-blue-500',
-      'from-blue-500 to-indigo-500',
-      'from-indigo-500 to-purple-500',
-    ];
-    let colorIndex = 0;
-    const interval = setInterval(() => {
-      colorIndex = (colorIndex + 1) % colors.length;
-      setBackgroundColor(colors[colorIndex]);
-    }, 3000); // Change color every 3 seconds
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, []);
+  
 
   
 
@@ -52,7 +35,7 @@ const Hero = () => {
   const formatTimeUnit = (unit: number) => unit.toString().padStart(2, "0");
 
   return (
-    <div className={`relative bg-gradient-to-r ${backgroundColor} transition-colors duration-1000 py-20 md:py-32 mt-4 overflow-hidden`}>
+    <div className="relative hero-gradient py-20 md:py-32 mt-4 overflow-hidden">
       <div className="container mx-auto grid md:grid-cols-2 items-center gap-12 px-6">
         {/* Left Section */}
         <div className="space-y-6 md:max-w-lg">

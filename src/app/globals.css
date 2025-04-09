@@ -6,15 +6,28 @@ th,
 td {
     border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;@layer utilities {
-  .transition-colors {
-    transition-property: background-color, background-image;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 1000ms;
-  }
+  text-align: left;
 }
-}
+@layer utilities{
+.hero-gradient {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    background: linear-gradient(135deg, rgba(0, 132, 255, 0.9) 0%, rgba(138, 43, 226, 0.9) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite alternate;
 
+}
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+}
 .loader {
     width: 48px;
     height: 48px;
