@@ -23,4 +23,4 @@ jobs:
         run: npm ci
 
       - name: Run type check
-        run: npm run type-checkname: Type-check Workflow
+  run: npm run type-check
