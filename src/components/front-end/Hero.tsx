@@ -79,7 +79,7 @@ const Hero = () => {
       {/* Right Section - Product Images */}
       <div className="relative hidden md:flex flex-wrap gap-8 justify-center items-center flex-1">
         {loading ? (
-        <p className="text-gray-500 animate-pulse">Loading products...</p>
+        <p className="text-gray-500 animate-pulse">your products on the way ...</p>
         ) : (
         products.map((product, index) => (
             <div 
