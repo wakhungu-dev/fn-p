@@ -12,14 +12,14 @@ import Feature from "@/components/front-end/Feature";
 const Home = async () => {
   return (
     <main className="flex flex-col min-h-screen">
-      <div className="flex-grow ">
-        <Hero />
-        <Feature />
-        <div className="px-4 sm:px-6 lg:px-8">
-          <Suspense fallback={<div>wait..</div>}>
-            <TrendingProduct />
-          </Suspense>
-        </div>
+      <div className="flex-grow">
+      <Hero />
+      <Feature />
+      <div className="px-2 sm:px-4 md:px-6 lg:px-8 ">
+        <Suspense fallback={<div>wait..</div>}>
+        <TrendingProduct />
+        </Suspense>
+      </div>
       </div>
       {/* <Footer /> */}
     </main>
