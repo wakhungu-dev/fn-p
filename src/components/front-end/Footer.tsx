@@ -29,15 +29,15 @@ const Footer = () => {
                 </div>
                 <div>
                     <h3 className="text-lg font-bold mb-4">Follow Us</h3>
-                    <div className="flex space-x-4">
-                        <a href="#" className="text-white hover:text-gray-400"><FaFacebook size={24} /></a>
-                        <a href="#" className="text-white hover:text-gray-400"><FaTwitter size={24} /></a>
-                        <a href="#" className="text-white hover:text-gray-400"><FaInstagram size={24} /></a>
-                        <a href="#" className="text-white hover:text-gray-400"><FaLinkedin size={24} /></a>
+                    <div className="flex space-x-4 justify-center sm:justify-start">
+                        <a href="#" className="text-white hover:text-gray-400"><FaFacebook size={20} className="sm:size-24" /></a>
+                        <a href="#" className="text-white hover:text-gray-400"><FaTwitter size={20} className="sm:size-24" /></a>
+                        <a href="#" className="text-white hover:text-gray-400"><FaInstagram size={20} className="sm:size-24" /></a>
+                        <a href="#" className="text-white hover:text-gray-400"><FaLinkedin size={20} className="sm:size-24" /></a>
                     </div>
                 </div>
-            </div>
-            <div className="mt-8 text-center text-sm text-gray-400">
+            </div >
+            <div className="mt-8 text-center text-sm text-gray-400 ,sm:text-base lg:text-lg bg-gray-800"> 
                 <p>&copy; {new Date().getFullYear()} lynrose Kenya. All rights reserved.</p>
             </div>
         </footer>

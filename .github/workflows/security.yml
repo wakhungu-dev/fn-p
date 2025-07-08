@@ -1,42 +1,42 @@
-name: Security Scan
+# name: Security Scan
 
-on:
-  push:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * 0'
+# on:
+#   push:
+#     branches: [ main ]
+#   schedule:
+#     - cron: '0 0 * * 0'
 
-jobs:
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+# jobs:
+#   security:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          To get a Snyk account and the SNYK_TOKEN, follow these steps:
+#       - name: Run Snyk to check for vulnerabilities
+#         uses: snyk/actions/node@master
+#         env:
+#           To get a Snyk account and the SNYK_TOKEN, follow these steps:
 
-          1. Go to https://snyk.io/ and click "Sign Up"
-          2. You can sign up for free using your GitHub account or email
-          3. Once logged in, go to your Account Settings
-          4. Navigate to "Auth Token" or "API Token" section
-          5. Generate a new token
-          6. Add this token to your GitHub repository:
-            - Go to your repo Settings
-            - Click "Secrets and variables" → "Actions"
-            - Click "New repository secret"
-            - Name: SNYK_TOKEN
-            - Value: (paste your Snyk token)
+#           1. Go to https://snyk.io/ and click "Sign Up"
+#           2. You can sign up for free using your GitHub account or email
+#           3. Once logged in, go to your Account Settings
+#           4. Navigate to "Auth Token" or "API Token" section
+#           5. Generate a new token
+#           6. Add this token to your GitHub repository:
+#             - Go to your repo Settings
+#             - Click "Secrets and variables" → "Actions"
+#             - Click "New repository secret"
+#             - Name: SNYK_TOKEN
+#             - Value: (paste your Snyk token)
 
-          The Snyk free tier includes:
-          - 200 open source tests per month
-          - Security scanning for vulnerabilities
-          - Basic reporting features
+#           The Snyk free tier includes:
+#           - 200 open source tests per month
+#           - Security scanning for vulnerabilities
+#           - Basic reporting features
 
-          The workflow will then be able to use the token via `${{ secrets.SNYK_TOKEN }}`.
+#           The workflow will then be able to use the token via `${{ secrets.SNYK_TOKEN }}`.
 
-      - name: Run OSSAR scan
-        uses: github/ossar-action@v1
-        if: ${{ github.event_name != 'pull_request' }}
-name: Security Workflow
+#       - name: Run OSSAR scan
+#         uses: github/ossar-action@v1
+#         if: ${{ github.event_name != 'pull_request' }}
+# name: Security Workflow

@@ -41,6 +41,7 @@ const Hero = () => {
         setProducts(data.slice(0, 3));
       } catch (error) {
         console.error("Error fetching products:", error);
+
       } finally {
         setLoading(false);
       }
@@ -81,24 +82,42 @@ const Hero = () => {
         <p className="text-gray-500 animate-pulse">Loading products...</p>
         ) : (
         products.map((product, index) => (
-          <div 
+            <div 
             key={product.id} 
-            className={`w-64 h-64 rounded-lg overflow-hidden shadow-xl transform 
-            transition-all duration-500 hover:scale-105 hover:shadow-2xl
-            ${index % 2 === 0 ? "rotate-2" : "-rotate-2"}`}
-          >
-          <Image
-            src={product.image || "/images/placeholder.jpg"}
-            alt={product.name}
-            width={256}
-            height={256}
-            className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
-            priority
-          />
-          </div>
+            className={`
+              relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl transform
+              transition-all duration-500 hover:scale-105 hover:shadow-2xl
+              ${index === showcaseIndex ? "z-20 scale-105 ring-4 ring-red-300" : "z-10 opacity-70"}
+              ${glassCard}
+              ${gradientOverlay}
+              ${index % 2 === 0 ? "rotate-2" : "-rotate-2"}
+            `}
+            style={{
+              boxShadow: index === showcaseIndex 
+              ? "0 8px 32px rgba(255,0,0,0.15)" 
+              : "0 4px 16px rgba(0,0,0,0.08)",
+              transition: "all 0.5s cubic-bezier(.4,2,.6,1)",
+            }}
+            >
+            <Image
+              src={product.image || "/images/placeholder.jpg"}
+              alt={product.name}
+              width={256}
+              height={256}
+              className={`
+              object-cover w-full h-full transition-transform duration-300
+              ${index === showcaseIndex ? "scale-110" : ""}
+              `}
+              priority
+            />
+            <div className="absolute bottom-0 left-0 w-full bg-white/70 backdrop-blur-sm py-2 px-4 text-center">
+              <span className="font-semibold text-gray-800">{product.name}</span>
+            </div>
+            </div>
         ))
         )}
       </div>
+      
       </div>
     </div>
   );
