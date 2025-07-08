@@ -15,11 +15,19 @@ const Home = async () => {
       <div className="flex-grow">
       <Hero />
       <Feature />
-      <div className="px-2 sm:px-4 md:px-6 lg:px-8 ">
-        <Suspense fallback={<div>wait..</div>}>
-        <TrendingProduct />
+      <section className="px-2 sm:px-6 md:px-12 lg:px-24 py-8 bg-gradient-to-b from-white to-gray-50 rounded-xl shadow-md my-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+          Trending Products
+        </h2>
+        <Suspense fallback={
+          <div className="flex justify-center items-center py-12">
+        <span className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></span>
+        <span className="ml-4 text-gray-500">just a minute...</span>
+          </div>
+        }>
+          <TrendingProduct />
         </Suspense>
-      </div>
+      </section>
       </div>
       {/* <Footer /> */}
     </main>
