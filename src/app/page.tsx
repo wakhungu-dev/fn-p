@@ -15,10 +15,11 @@ const Home = async () => {
       <div className="flex-grow ">
         <Hero />
         <Feature />
-        <Suspense fallback={<div>wait..</div>}>
-          <TrendingProduct />
-          
-        </Suspense>
+        <div className="px-4 sm:px-6 lg:px-8">
+          <Suspense fallback={<div>wait..</div>}>
+            <TrendingProduct />
+          </Suspense>
+        </div>
       </div>
       {/* <Footer /> */}
     </main>
