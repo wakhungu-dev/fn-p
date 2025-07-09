@@ -6,7 +6,7 @@ import { useEffect, useState, useCallback } from "react";
 interface Product {
   id: string | number;
   name: string;
-  image: string;
+  image: string;                
   price: number;
 }
 

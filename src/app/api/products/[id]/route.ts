@@ -22,7 +22,7 @@ export async function PUT(request: NextRequest, URLparams: any) {
         );
 
         return NextResponse.json({msg: "Product updated successfully", data});
-    } catch (error) {
+    } catch (error: any) {
         return NextResponse.json(
             {
                 error,
