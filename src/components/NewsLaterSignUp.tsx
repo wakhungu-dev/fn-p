@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
+import Button from './front-end/Button';
 
 const NewsletterSignup = () => {
   return (
@@ -33,9 +34,7 @@ const NewsletterSignup = () => {
                 placeholder="Your email address" 
                 className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
               />
-              <Button className="py-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold">
-                Subscribe Now
-              </Button>
+              <Button />
               <p className="text-xs text-gray-500 text-center">
                 We respect your privacy. Unsubscribe at any time.
               </p>
