@@ -47,3 +47,19 @@ export interface ProductDetails {
     quantity: number
     sizes?: string
 }
+
+export interface product {
+  _id : string | number;
+  name : string;
+  image : string
+  price? : number
+}
+
+export interface feedback {
+  _id? : string | number;
+  email : string;
+  name : string;
+  message : string;
+  
+
+}

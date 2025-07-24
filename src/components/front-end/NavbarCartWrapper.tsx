@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Cart from "./Cart";
-import Feature from "./Feature";
-import Hero from "./Hero";
+// import Hero from "./Hero";
 import Navbar from "./Navbar";
 
 interface PropsType extends React.PropsWithChildren{
