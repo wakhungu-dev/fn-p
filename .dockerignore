@@ -3,7 +3,11 @@ node_modules
 npm-debug.log
 dist
 .next
-.env
 Dockerfile
 .git
 .gitignore
+Dockerfile
+.dockerignore
+*.md
+.env*
+*.log
