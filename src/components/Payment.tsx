@@ -14,7 +14,7 @@ const Payment: React.FC = () => {
         try {
             const response = await axios.post('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', {
                 BusinessShortCode: '174379',
-                Password: 'YOUR_PASSWORD',
+                // Password: 'YOUR_PASSWORD',
                 Timestamp: 'YOUR_TIMESTAMP',
                 TransactionType: 'CustomerPayBillOnline',
                 Amount: amount,
