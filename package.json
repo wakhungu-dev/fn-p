@@ -17,7 +17,7 @@
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "mds-daraja-sdk": "^1.1.9",
-    "mongoose": "^8.4.5",
+    "mongoose": "^8.16.1",
     "next": "^14.2.30",
     "next-auth": "^4.24.7",
     "react": "^18",
