@@ -26,10 +26,17 @@ const Hero = () => {
 
   // Auto-rotate only when not hovering
   useEffect(() => {
-    if (products.length === 0 || isHovering) return;
-    const interval = setInterval(handleNext, 4000);
-    return () => clearInterval(interval);
-  }, [products, isHovering, handleNext]);
+    let intervalId: NodeJS.Timeout | null = null;
+    if (products.length > 0 && !isHovering) {
+      intervalId = setTimeout(() => {
+        handleNext();
+        intervalId = null;
+      }, 4000);
+    }
+    return () => {
+      if (intervalId) clearTimeout(intervalId);
+    };
+  }, [products, isHovering, handleNext, showcaseIndex]);
 
   useEffect(() => {
     const fetchProducts = async () => {
