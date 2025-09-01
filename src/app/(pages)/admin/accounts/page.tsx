@@ -10,7 +10,7 @@ const getUsers = async () => {
     return users ?? []
 }
 
-const accounts = async () => {
+ const accounts = async () => {
     const users = await getUsers()
     console.log({ users })
 
@@ -47,4 +47,4 @@ const accounts = async () => {
     )
 }
 
-export default accounts
+export default accounts;
