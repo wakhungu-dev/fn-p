@@ -38,35 +38,35 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
-      <div className='bg-white h-[calc(100vh-96px)] rounded-lg p-4'>
-        <h2 className='text-3xl'>All products</h2>
+      <div className='bg-white h-[calc(100vh-96px)] rounded-lg p-4 shadow-lg'>
+        <h2 className='text-3xl font-bold text-gray-800 mb-6'>All products</h2>
         <div className='mt-4 h-[calc(100vh-180px)] overflow-y-auto overflow-x-auto'>
           {/* Table container with horizontal scrolling */}
-          <table className='w-full border-collapse'>
-            <thead className='sticky top-0 bg-white'>
-              {/* Table headers with sticky positioning */}
-              <tr className='text-gray-500 border-t border-[#ececec]'>
-                <th className='px-4 py-2'>SR No.</th>
-                <th className='px-4 py-2'>Name</th>
-                <th className='px-4 py-2'>Price</th>
-                <th className='px-4 py-2'>Picture</th>
-                <th className='px-4 py-2'>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Render each product row */}
-              {
-                products.map((product, index) => (
-                  <ProductRow
-                    key={product._id}
-                    SrNo={index + 1}
-                    setOpenPopup={setOpenPopup}
-                    setUpdateTable={setUpdateTable}
-                    product={product}
-                  />
-                ))
-              }
-            </tbody>
+          <table className='w-full border-collapse min-w-[800px]'>
+        <thead className='sticky top-0 bg-white shadow-sm'>
+          {/* Table headers with sticky positioning */}
+          <tr className='text-gray-600 border-b border-gray-200'>
+            <th className='px-6 py-3 text-left'>SR No.</th>
+            <th className='px-6 py-3 text-left'>Name</th>
+            <th className='px-6 py-3 text-left'>Price</th>
+            <th className='px-6 py-3 text-left'>Picture</th>
+            <th className='px-6 py-3 text-left'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Render each product row */}
+          {
+            products.map((product, index) => (
+          <ProductRow
+            key={product._id}
+            SrNo={index + 1}
+            setOpenPopup={setOpenPopup}
+            setUpdateTable={setUpdateTable}
+            product={product}
+          />
+            ))
+          }
+        </tbody>
           </table>
         </div>
       </div>
