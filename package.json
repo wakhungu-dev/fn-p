@@ -19,7 +19,7 @@
     "mds-daraja-sdk": "^1.1.12",
     "mongoose": "^8.4.5",
     "next": "^14.2.32",
-    "next-auth": "^4.24.7",
+    "next-auth": "^4.24.12",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
