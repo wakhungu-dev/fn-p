@@ -1,4 +1,3 @@
-import { User as NextauthUser } from "next-auth";
 export interface Iproduct {
     _id?: string
     imgSrc: string
@@ -34,11 +33,10 @@ export enum Category {
     user: IUser|string
   }
  
-export interface IUser extends NextauthUser {
+export interface IUser {
   name: string;
   email: string;
   image: string;
-  // id: string;
   role: string;
   _id?: string;
 }

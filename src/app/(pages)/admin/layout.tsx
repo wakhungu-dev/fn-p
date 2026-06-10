@@ -3,7 +3,7 @@ import Sidebar from '@/components/admin-panel/AdminSidebar';
 import Loader from '@/components/admin-panel/Loader';
 import Login from '@/components/admin-panel/Login';
 import { useAppSelector } from '@/redux/hooks'
-import { useSession } from 'next-auth/react'
+import { useUser } from '@clerk/nextjs'
 import React, { ReactNode } from 'react'
 
 
@@ -13,13 +13,16 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const isLoading = useAppSelector(store => store.loading)
-    const { data: session } = useSession()
+    const { user, isLoaded } = useUser()
     
-    if (!session?.user) {
+    if (!isLoaded) {
+        return <Loader />
+    }
+
+    if (!user) {
         return <Login />
     }
     
-    console.log({session})
     return (
         <div className='flex'>
            <Sidebar  /> 

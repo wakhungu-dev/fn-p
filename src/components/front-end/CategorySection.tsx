@@ -1,6 +1,6 @@
 // components/CategorySection.tsx
 import React, { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useUser } from '@clerk/nextjs';
 import { Iproduct, Category } from '@/types/core';
 import Image from 'next/image';
 import Rating from '../Rating';
@@ -15,7 +15,7 @@ const CategorySection = ({ category, onClick, addToCart }: CategorySectionProps)
   const [products, setProducts] = useState<Iproduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const { data: session } = useSession();
+  const { user, isLoaded } = useUser();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -67,7 +67,7 @@ const CategorySection = ({ category, onClick, addToCart }: CategorySectionProps)
                 <p className="text-gray-600 mb-2">
                   Price: {product.price.amount} {product.price.currency}
                 </p>
-                {session && (
+                {isLoaded && user && (
                   <button
                     className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"
                     onClick={() => addToCart(product)}
