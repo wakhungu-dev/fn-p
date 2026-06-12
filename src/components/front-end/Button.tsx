@@ -8,8 +8,8 @@ const NewsletterButton: React.FC<NewsletterButtonProps> = ({ onClick }) => (
     <button
         style={{
             padding: '10px 20px',
-            backgroundColor: '#007bff',
-            color: '#fff',
+            backgroundColor: '#33ff00',
+            color: '#ffffff',
             border: 'none',
             borderRadius: '4px',
             cursor: 'pointer',
