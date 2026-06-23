@@ -5,6 +5,7 @@ import Product from '@/libs/models/product';
 import { mongoDbConnection } from '@/libs/mongoDb';
 import { Iproduct } from '@/types/core';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 const getProductById = async (id: string): Promise<Iproduct | null> => {
@@ -25,7 +26,7 @@ const page = async ({ params: { slug } }: any) => {
 
   // If the product is not found, return a "notFound" object
   if (!product) {
-    return { notFound: true };
+    notFound();
   }
 
   // Destructure the properties from the "product" object

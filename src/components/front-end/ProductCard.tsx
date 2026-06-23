@@ -13,12 +13,13 @@ import { Iproduct } from "@/types/core";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "../AddToCartButton";
+import { ReactElement } from "react";
 
 interface PropsType {
   product: Iproduct;
 }
 
-const ProductCard = ({ product }: PropsType): JSX.Element => {
+const ProductCard = ({ product }: PropsType): ReactElement => {
   const { _id, imgSrc, category, name, price, fileKey, reviews } = product;
 
   const renderStars = (rating: number) => {
