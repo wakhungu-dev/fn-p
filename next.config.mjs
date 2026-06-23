@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        serverComponentsExternalPackages: ['mongoose'],
-    },
+    serverExternalPackages: ['mongoose'],
     output: 'standalone',
     images: {
         remotePatterns: [
@@ -15,7 +13,18 @@ const nextConfig = {
                 hostname: '*',
             }
         ]
-    }
+    },
+    webpack: (config, { isServer }) => {
+        config.resolve.extensionAlias = {
+            '.js': ['.ts', '.tsx', '.js', '.jsx'],
+        };
+        // Ignore README.md and .d.cts files from UploadThing
+        config.module.rules.push({
+            test: /node_modules\/@uploadthing.*\.md$/,
+            use: 'ignore-loader',
+        });
+        return config;
+    },
 };
 
 export default nextConfig;

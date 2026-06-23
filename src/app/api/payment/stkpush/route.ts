@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
     console.log({url:req.url})
     try {
       const { phone, amount, customerName, email, address, city, postalCode, deliveryNotes } = await req.json();
-      const data = await safaricomDarajaApi.intiateC2bStkPush(phone, amount);
+      const data = await safaricomDarajaApi.initiateC2bStkPush(phone, amount);
   
       console.log('Guest checkout details:', {
         customerName,

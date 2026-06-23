@@ -45,26 +45,3 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Internal Server Error '+ error.message }, { status: 500 });
     }
 }
-
-export async function DELETE(request: NextRequest, query: { params: { id: string } }) {
-    try {
-        await mongoDbConnection();
-        const body = await request.json();
-        const { id } = query.params;
-
-        if (!id) {
-            return NextResponse.json({ error: 'Product ID is required' }, { status: 400 });
-        }
-
-        const deletedProduct = await Product.findByIdAndDelete(id);
-
-        if (!deletedProduct) {
-            return NextResponse.json({ error: 'Product not found' }, { status: 404 });
-        }
-
-        return NextResponse.json({ message: 'Product deleted successfully' }, { status: 200 });
-    } catch (error) {
-        console.error('Error deleting product:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
-    }
-}

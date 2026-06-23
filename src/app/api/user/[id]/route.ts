@@ -1,10 +1,10 @@
 import { userController } from "@/controllers/UserController";
 import { NextResponse } from "next/server";
 
-export async function PUT(req: Request, query:{params: {id: string}}){
+export async function PUT(req: Request, { params }: any){
     const body = await req.json();
     try {
-        const updatedUser = await userController.updateUser(query.params.id, body);
+        const updatedUser = await userController.updateUser(params.id, body);
         return NextResponse.json(updatedUser);
         console.log(updatedUser);
     } catch (error: any) {

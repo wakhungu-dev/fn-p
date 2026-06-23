@@ -3,6 +3,8 @@ import User from '@/libs/models/user'
 import { mongoDbConnection } from '@/libs/mongoDb'
 import React from 'react'
 
+export const dynamic = 'force-dynamic'
+
 const getUsers = async () => {
     await mongoDbConnection()
     // const users = await User.find({ role: 'user' })
