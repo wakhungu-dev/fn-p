@@ -29,6 +29,11 @@ const nextConfig = {
         resolveAlias: {
             '@': './src',
         },
+        rules: {
+            '*.md': {
+                loaders: ['ignore-loader'],
+            },
+        },
     },
 };
 
