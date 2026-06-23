@@ -25,6 +25,16 @@ const nextConfig = {
         });
         return config;
     },
+    turbopack: {
+        resolveAlias: {
+            '@': './src',
+        },
+        rules: {
+            '*.md': {
+                loaders: ['ignore-loader'],
+            },
+        },
+    },
 };
 
 export default nextConfig;
