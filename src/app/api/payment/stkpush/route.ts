@@ -4,11 +4,20 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     console.log({url:req.url})
     try {
-      const { phone, amount } = await req.json();
+      const { phone, amount, customerName, email, address, city, postalCode, deliveryNotes } = await req.json();
       const data = await safaricomDarajaApi.intiateC2bStkPush(phone, amount);
   
-      return NextResponse.json({ sucess: true, data });
+      console.log('Guest checkout details:', {
+        customerName,
+        email,
+        address,
+        city,
+        postalCode,
+        deliveryNotes,
+      });
+
+      return NextResponse.json({ success: true, data, order: { customerName, email, address, city, postalCode, deliveryNotes } });
     } catch (error: any) {
-      return NextResponse.json({ error: error }, { status: 500 });
+      return NextResponse.json({ error: error?.message || error }, { status: 500 });
     }
   }
