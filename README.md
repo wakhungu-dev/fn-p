@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lynrose E-commerce
+
+A Next.js storefront and admin dashboard for browsing products, managing catalog data, and completing checkout with M-Pesa STK push.
+
+## Features
+
+- Product browsing, category pages, and product detail pages
+- Cart state managed with Redux Toolkit
+- Clerk authentication for signed-in and signed-out user flows
+- Admin area for managing products and user accounts
+- MongoDB persistence through Mongoose
+- Product image uploads with UploadThing
+- Safaricom Daraja STK push checkout flow
+
+## Tech Stack
+
+- Next.js App Router
+- React and TypeScript
+- Tailwind CSS
+- Redux Toolkit
+- Clerk
+- MongoDB and Mongoose
+- UploadThing
+- Safaricom Daraja SDK
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file and set the values required by your deployment:
+
+```bash
+NEXT_PUBLIC_MONGODB_URI=your_mongodb_connection_string
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+```
+
+If your UploadThing or payment provider setup uses additional keys, add them to the same file as needed.
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run dev` - start the dev server
+- `npm run build` - create a production build
+- `npm run start` - start the production server
+- `npm run lint` - run Next.js linting
+- `npm run type-check` - run the TypeScript compiler without emitting files
+- `npm run test` - run Jest tests
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app` - app routes, layouts, API routes, and pages
+- `src/components` - reusable UI and admin components
+- `src/controllers` - server-side controller logic
+- `src/libs` - database and library helpers
+- `src/redux` - Redux store and feature slices
+- `src/types` - shared TypeScript types
+- `src/utils` - utility helpers
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Main Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `/` - storefront home page
+- `/products` - product listing
+- `/category` - category listing
+- `/admin` - admin dashboard
+- `/api/products` - product API
+- `/api/payment/stkpush` - checkout initiation endpoint
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project can be deployed on any platform that supports Next.js. Make sure the environment variables above are configured in your hosting provider before deploying.
