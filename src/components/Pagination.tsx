@@ -14,7 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage }) => {
 
   return (  
     <nav aria-label="Pagination">  
-      <ul className="flex justify-center gap-2 mt-4">  
+      <ul className="flex justify-center gap-2 mt-3">  
         {currentPage > 1 && (  
           <li>  
             <Link href={`/products?page=${currentPage - 1}`} aria-label="Previous">  
