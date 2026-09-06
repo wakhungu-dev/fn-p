@@ -14,7 +14,7 @@
     "@clerk/nextjs": "^7.5.5",
     "@reduxjs/toolkit": "^2.8.2",
     "@uploadthing/react": "^6.6.0",
-    "axios": "^1.7.2",
+    "axios": "^1.20.0",
     "bcryptjs": "^2.4.3",
     "mds-daraja-sdk": "^1.1.12",
     "mongoose": "^8.4.5",
